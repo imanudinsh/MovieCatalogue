@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Layar Ngaca 21</string>
+    <string name="read_more">Lebih lengkap</string>
+    <string name="user_score">Skor pengguna</string>
+    <string name="synopsis">Ringkasan</string>
+    <string name="img_poster_desc">Poster film</string>
+    <string name="menu_movie">Film</string>
+    <string name="menu_tv_show">Acara TV</string>
+    <string name="change_language_settings">Ubah pengaturan bahasa</string>
+    <string name="desc_ic_movie">Icon film</string>
+    <string name="icon_of_notification">Icon of notification</string>
+    <string name="error_msg_bad_connection">Ada yang salah, silahkan periksa koneksi internet anda.</string>
+</resources>

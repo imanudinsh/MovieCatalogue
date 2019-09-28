@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Layar Ngaca 21</string>
+    <string name="read_more">Lee mas</string>
+    <string name="user_score">Puntuación del usuario</string>
+    <string name="synopsis">Sinopsis</string>
+    <string name="img_poster_desc">Cartel de la película</string>
+    <string name="menu_movie">Películas</string>
+    <string name="menu_tv_show">Programas de TV</string>
+    <string name="change_language_settings">Cambiar la configuración de idioma</string>
+    <string name="desc_ic_movie">Películas de iconos</string>
+    <string name="icon_of_notification">Icon of notification</string>
+    <string name="error_msg_bad_connection">Algo anda mal. por favor revise su conexión a internet.</string>
+</resources>

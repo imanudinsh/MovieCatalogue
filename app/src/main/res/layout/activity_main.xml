@@ -17,9 +17,10 @@
 
         <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar"
-                android:layout_width="match_parent"
+                android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:paddingTop="@dimen/margin_padding_16dp"
+                android:layout_gravity="end"
                 android:layout_marginEnd="@dimen/margin_padding_8dp"
                 app:layout_constraintTop_toTopOf="parent"
                 app:elevation="2dp">
@@ -32,8 +33,7 @@
         <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
-                android:layout_marginTop="-24dp"
+                android:layout_marginTop="-16dp"
                 android:gravity="end"
                 android:orientation="horizontal"
                 android:paddingStart="16dp"
@@ -46,6 +46,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:layout_weight="1"
+                    android:layout_gravity="bottom"
                     android:layout_marginTop="-4dp">
 
                 <ImageView
@@ -64,13 +65,14 @@
                         android:orientation="vertical">
 
                     <TextView
+
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:textColor="@color/black"
                             android:text="LAYAR"
-                            android:textSize="20sp"
-                            android:layout_marginBottom="-6dp"
+                            android:textSize="24sp"
+                            android:layout_marginBottom="-8dp"
                             app:fontFamily="@font/exo_bold"/>
 
                     <TextView
@@ -79,7 +81,7 @@
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:textColor="@color/black"
                             android:text="NGACA"
-                            android:textSize="20sp"
+                            android:textSize="24sp"
                             app:fontFamily="@font/exo_bold"/>
 
                 </LinearLayout>
@@ -91,7 +93,7 @@
                         android:text="21"
                         android:layout_marginStart="2dp"
                         android:layout_gravity="bottom"
-                        android:textSize="20sp"
+                        android:textSize="24sp"
                         app:fontFamily="@font/exo_bold"/>
             </LinearLayout>
 
@@ -99,7 +101,7 @@
             <android.support.design.widget.TabLayout
                     android:id="@+id/tabs"
                     android:layout_width="160dp"
-                    android:layout_height="35dp"
+                    android:layout_height="30dp"
                     android:layout_gravity="bottom"
                     android:background="@drawable/bg_rounded_gradient"
                     android:backgroundTint="@color/colorBacground"
@@ -109,74 +111,27 @@
                     app:tabTextAppearance="@style/TabLayout"
                     app:tabIndicatorHeight="0dp"/>
 
-            <LinearLayout android:layout_width="wrap_content"
-                          android:layout_height="wrap_content"
-                          android:layout_gravity="bottom"
-                          android:background="@drawable/bg_rounded_gradient"
-                          android:backgroundTint="@color/colorBacground"
-                            android:visibility="gone">
-                <LinearLayout
-                        android:id="@+id/tab_movie"
-                        android:layout_width="wrap_content"
-                        android:layout_height="35dp"
-                        android:background="@drawable/bg_rounded_gradient"
-                        android:orientation="horizontal"
-                        android:gravity="center_horizontal|center_vertical"
-                        android:paddingStart="12dp"
-                        android:paddingEnd="12dp">
-                    <ImageView
-                            android:id="@+id/iv_movie"
-                            android:layout_width="14dp"
-                            android:layout_height="14dp"
-                            android:src="@drawable/ic_roll"
-                            android:layout_marginEnd="@dimen/margin_padding_4dp"
-                            android:contentDescription="@string/desc_ic_movie"
-                            android:tint="@color/white"/>
+            <LinearLayout
+                    android:visibility="gone"
+                    android:id="@+id/btn_favorite"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="bottom"
+                    android:layout_marginStart="@dimen/margin_padding_8dp"
+                    android:background="@drawable/bg_rounded_gradient"
+                    android:backgroundTint="@color/colorBacground"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:foreground="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:orientation="vertical">
+                <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:layout_marginTop="@dimen/margin_padding_4dp"
+                        android:src="@drawable/ic_heart"/>
 
-                    <TextView
-                            android:id="@+id/tv_movie"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical"
-                            android:fontFamily="@font/exo_bold"
-                            android:textAllCaps="true"
-                            android:text="@string/menu_movie"
-                            android:textColor="@color/white"
-                            android:textSize="10sp"/>
-                </LinearLayout>
-
-
-                <LinearLayout
-                        android:id="@+id/tab_tv_show"
-                        android:layout_width="wrap_content"
-                        android:layout_height="35dp"
-                        android:orientation="horizontal"
-                        android:gravity="center_horizontal|center_vertical"
-                        android:paddingStart="12dp"
-                        android:paddingEnd="12dp">
-
-                    <ImageView
-                            android:id="@+id/iv_tv_show"
-                            android:layout_width="14dp"
-                            android:layout_height="14dp"
-                            android:src="@drawable/ic_tv"
-                            android:layout_marginEnd="@dimen/margin_padding_4dp"
-                            android:contentDescription="@string/desc_ic_movie"
-                            android:tint="@null"/>
-
-                    <TextView
-                            android:id="@+id/tv_tv_show"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical"
-                            android:fontFamily="@font/exo_bold"
-                            android:textColor="@color/black"
-                            android:textSize="10sp"
-                            android:textAllCaps="true"
-                            android:text="@string/menu_tv_show" />
-
-                </LinearLayout>
-            </LinearLayout>
+            </LinearLayout >
 
 
 
@@ -199,15 +154,6 @@
                 android:background="@color/colorBacground"
                 app:layout_constraintTop_toBottomOf="@+id/divider" />
 
-
-        <FrameLayout
-                android:id="@+id/contentLayout"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:background="@color/colorBacground"
-                app:layout_constraintTop_toBottomOf="@+id/divider"
-        android:visibility="gone"/>
     </LinearLayout>
 
 

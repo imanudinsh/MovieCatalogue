@@ -12,19 +12,37 @@ import android.widget.RatingBar
 import android.widget.TextView
 import com.bumptech.glide.Glide
 import com.im.layarngaca21.R
+import com.im.layarngaca21.database.entity.Favorite
 import com.im.layarngaca21.model.TV
 import com.im.layarngaca21.view.moviedetail.TVShowDetailActivity
 import kotlinx.android.synthetic.main.item_row.view.*
 import android.support.v4.util.Pair as UtilPair
 
-class TVShowViewAdapter(val activity: Activity) : RecyclerView.Adapter<TVShowViewAdapter.CardViewViewHolder>() {
+class TVShowViewAdapter(val activity: Activity, val favListener: (TV, ImageView, Boolean) -> Unit) : RecyclerView.Adapter<TVShowViewAdapter.CardViewViewHolder>() {
 
     private val mData = mutableListOf<TV>()
+    private val listFavorites = mutableListOf<Favorite>()
 
     fun setData(items: List<TV>) {
         mData.clear()
         mData.addAll(items)
         notifyDataSetChanged()
+    }
+
+
+
+    fun setFavorites(items: List<Favorite>) {
+        listFavorites.clear()
+        listFavorites.addAll(items)
+        notifyDataSetChanged()
+    }
+
+    fun addFavorite(item: Favorite) {
+        listFavorites.add(item)
+    }
+
+    fun removeFavorite(item: Favorite) {
+        listFavorites.remove(item)
     }
 
     fun addItem(item: TV) {
@@ -47,6 +65,7 @@ class TVShowViewAdapter(val activity: Activity) : RecyclerView.Adapter<TVShowVie
     }
 
     override fun onBindViewHolder(holder: CardViewViewHolder, position: Int) {
+        holder.setIsRecyclable(false)
         val p = mData[position]
         Glide.with(holder.itemView.context)
             .load("https://image.tmdb.org/t/p/w185${p.poster}")
@@ -57,7 +76,7 @@ class TVShowViewAdapter(val activity: Activity) : RecyclerView.Adapter<TVShowVie
         val rate = (p.rate.toFloat()*10).toInt()
         holder.itemView.tv_score.text = String.format("%s%%", rate)
         holder.itemView.rb_score.rating = rate/20f
-
+        if(listFavorites.any { it.id == p.id }) holder.itemView.iv_heart.imageTintList = activity.getColorStateList(R.color.red)
 
         holder.itemView.cardView.setOnClickListener {
 
@@ -67,6 +86,11 @@ class TVShowViewAdapter(val activity: Activity) : RecyclerView.Adapter<TVShowVie
             val intent = Intent(it.context, TVShowDetailActivity::class.java)
             intent.putExtra(TVShowDetailActivity.EXTRA_FILM, p)
             it.context.startActivity(intent, options.toBundle())
+        }
+
+
+        holder.itemView.btn_favorite.setOnClickListener {
+            favListener(p, holder.itemView.iv_heart,listFavorites.any { it.id == p.id })
         }
 
     }

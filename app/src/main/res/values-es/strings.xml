@@ -11,4 +11,7 @@
     <string name="desc_ic_movie">Películas de iconos</string>
     <string name="icon_of_notification">Icon of notification</string>
     <string name="error_msg_bad_connection">Algo anda mal. por favor revise su conexión a internet.</string>
+    <string name="favorite">Favorito</string>
+    <string name="desc_ic_heart">icono corazon</string>
+    <string name="love_it">Amarla</string>
 </resources>

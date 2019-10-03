@@ -10,10 +10,12 @@ import android.support.v4.view.ViewPager
 import android.view.Menu
 import android.view.MenuItem
 import com.im.layarngaca21.R
-import android.graphics.drawable.Animatable
 import android.support.graphics.drawable.AnimatedVectorDrawableCompat
-
-
+import android.support.v4.app.ActivityOptionsCompat
+import android.support.v4.util.Pair as UtilPair
+import android.view.View
+import com.im.layarngaca21.view.favorite.FavoriteActivity
+import kotlinx.android.synthetic.main.activity_main.toolbar
 
 
 class MainActivity : AppCompatActivity() {
@@ -28,6 +30,8 @@ class MainActivity : AppCompatActivity() {
         vp_main.addOnPageChangeListener(viewPagerListener)
         tabs.setupWithViewPager(vp_main)
 
+
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -39,6 +43,12 @@ class MainActivity : AppCompatActivity() {
         if (item.getItemId() == R.id.action_change_settings) {
             val mIntent = Intent(Settings.ACTION_LOCALE_SETTINGS)
             startActivity(mIntent)
+        }else if(item.getItemId() == R.id.action_favorite){
+
+            val pairTransition = UtilPair.create<View, String>(toolbar, "container")
+            val options = ActivityOptionsCompat.makeSceneTransitionAnimation(this, pairTransition)
+            val intent = Intent(this, FavoriteActivity::class.java)
+            startActivity(intent, options.toBundle())
         }
         return super.onOptionsItemSelected(item)
     }
@@ -53,11 +63,9 @@ class MainActivity : AppCompatActivity() {
                 val ivLogoAnimation = AnimatedVectorDrawableCompat.create(this@MainActivity, R.drawable.ic_tv_anim)
                 iv_logo.setImageDrawable(ivLogoAnimation)
                 ivLogoAnimation?.start()
-                ivLogoAnimation?.start()
             }else{
                 val ivLogoAnimation = AnimatedVectorDrawableCompat.create(this@MainActivity, R.drawable.ic_roll_anim)
                 iv_logo.setImageDrawable(ivLogoAnimation)
-                ivLogoAnimation?.start()
                 ivLogoAnimation?.start()
             }
         }

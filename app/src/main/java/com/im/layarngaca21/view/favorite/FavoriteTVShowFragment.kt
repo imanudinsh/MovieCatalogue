@@ -1,4 +1,4 @@
-package com.im.layarngaca21.view.main
+package com.im.layarngaca21.view.favorite
 
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
@@ -17,11 +17,12 @@ import com.im.layarngaca21.model.TV
 import com.im.layarngaca21.utils.CustomToast
 import com.im.layarngaca21.utils.ViewMessages
 import com.im.layarngaca21.utils.values.CategoryEnum
+import com.im.layarngaca21.view.main.TVShowViewAdapter
 import com.im.layarngaca21.viewmodel.TVShowsViewModel
 import kotlinx.android.synthetic.main.fragment_tv_show.*
 
 
-class TVShowFragment : Fragment(), ViewMessages {
+class FavoriteTVShowFragment : Fragment(), ViewMessages {
 
 
     private lateinit  var tvShowsViewModel: TVShowsViewModel
@@ -66,10 +67,7 @@ class TVShowFragment : Fragment(), ViewMessages {
         tvShowsViewModel = ViewModelProviders.of(this).get(TVShowsViewModel::class.java)
         tvShowsViewModel.onViewAttached()
         tvShowsViewModel.getAllFavorites().observe(this, getFavorite)
-        tvShowsViewModel.getTVShows().observe(this, getTV)
         tvShowsViewModel.messagesEvent.setEventReceiver(this, this)
-        tvShowsViewModel.setTVShows()
-        progressBar.visibility = View.VISIBLE
 
     }
 
@@ -78,19 +76,15 @@ class TVShowFragment : Fragment(), ViewMessages {
         override fun onChanged(listFav: List<Favorite>?) {
             if (listFav != null) {
                 adapter.setFavorites(listFav)
-            }
-        }
-    }
-    private val getTV = object : Observer<List<TV>?> {
-        override fun onChanged(listTV: List<TV>?) {
-            if (listTV != null) {
+                val listTV: MutableList<TV> = mutableListOf()
+                listFav.forEach {
+                    listTV.add(TV(id= it.id, name = it.title, firsAirDate = it.date, rate = it.rate, synopsis = it.synopsis, poster = it.poster))
+                }
                 adapter.setData(listTV)
-                adapter.notifyDataSetChanged()
-                progressBar.visibility = View.GONE
-                Log.d("TVFragment","$listTV")
             }
         }
     }
+
 
     private fun showRecyclerCardView() {
         rv_category.layoutManager = LinearLayoutManager(context)
@@ -99,8 +93,6 @@ class TVShowFragment : Fragment(), ViewMessages {
 
 
     override fun showMessage(message: Int, category: String) {
-        context?.let { CustomToast().show(it, resources.getString(message), category) }
-        progressBar.visibility = View.GONE
         view_no_data.visibility = if(adapter.itemCount>0) View.GONE else View.VISIBLE
     }
 

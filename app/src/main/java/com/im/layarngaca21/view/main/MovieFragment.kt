@@ -3,6 +3,7 @@ package com.im.layarngaca21.view.main
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
+import android.support.graphics.drawable.AnimatedVectorDrawableCompat
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
 import android.transition.TransitionInflater
@@ -11,9 +12,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.im.layarngaca21.R
+import com.im.layarngaca21.database.entity.Favorite
 import com.im.layarngaca21.model.Movie
 import com.im.layarngaca21.utils.CustomToast
 import com.im.layarngaca21.utils.ViewMessages
+import com.im.layarngaca21.utils.values.CategoryEnum
 import com.im.layarngaca21.viewmodel.MoviesViewModel
 import kotlinx.android.synthetic.main.fragment_movie.*
 
@@ -33,7 +36,24 @@ class MovieFragment : Fragment(), ViewMessages{
 
         activity?.window?.setSharedElementExitTransition(TransitionInflater.from(context).inflateTransition(R.transition.element_transition))
 
-        adapter = MovieViewAdapter(activity!!)
+        adapter = MovieViewAdapter(activity!!, favListener = {movie, ivHeart, isFavorite ->
+            val fav = Favorite(id= movie.id, title = movie.title, date = movie.releaseDate, rate = movie.rate, synopsis = movie.synopsis, poster = movie.poster, category = CategoryEnum.MOVIE.value)
+            if(isFavorite){
+                moviesViewModel.deleteFavorite(fav)
+                ivHeart.setImageDrawable(context?.getDrawable(R.drawable.ic_heart))
+                ivHeart.imageTintList = context?.getColorStateList(R.color.grey)
+                adapter.removeFavorite(fav)
+            }else{
+                moviesViewModel.insertFavorite(fav)
+                adapter.addFavorite(fav)
+                context?.let {
+                    val ivAnimation = AnimatedVectorDrawableCompat.create(it, R.drawable.ic_heart_anim)
+                    ivHeart.setImageDrawable(ivAnimation)
+                    ivAnimation?.start()
+                }
+
+            }
+        })
         adapter.notifyDataSetChanged()
 
         return mView
@@ -43,19 +63,26 @@ class MovieFragment : Fragment(), ViewMessages{
         super.onViewCreated(view, savedInstanceState)
         showRecyclerCardView()
         moviesViewModel = ViewModelProviders.of(this).get(MoviesViewModel::class.java)
+        moviesViewModel.onViewAttached()
+        moviesViewModel.getAllFavorites().observe(this, getFavorite)
         moviesViewModel.getMovies().observe(this, getMovie)
         moviesViewModel.messagesEvent.setEventReceiver(this, this)
-
         moviesViewModel.setMovies()
         progressBar.visibility = View.VISIBLE
 
     }
 
+    private val getFavorite = object : Observer<List<Favorite>?> {
+        override fun onChanged(listFav: List<Favorite>?) {
+            if (listFav != null) {
+                adapter.setFavorites(listFav)
+            }
+        }
+    }
     private val getMovie = object : Observer<List<Movie>?> {
         override fun onChanged(listMovie: List<Movie>?) {
             if (listMovie != null) {
                 adapter.setData(listMovie)
-                adapter.notifyDataSetChanged()
                 progressBar.visibility = View.GONE
                 Log.d("MovieFragment","$listMovie")
             }

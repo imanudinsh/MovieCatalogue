@@ -11,4 +11,7 @@
     <string name="desc_ic_movie">Icon film</string>
     <string name="icon_of_notification">Icon of notification</string>
     <string name="error_msg_bad_connection">Ada yang salah, silahkan periksa koneksi internet anda.</string>
+    <string name="favorite">Favorit</string>
+    <string name="desc_ic_heart">Icon Hati</string>
+    <string name="love_it">Sukai</string>
 </resources>

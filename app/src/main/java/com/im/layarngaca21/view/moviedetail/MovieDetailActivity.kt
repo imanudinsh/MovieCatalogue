@@ -4,6 +4,7 @@ import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.graphics.drawable.AnimatedVectorDrawableCompat
 import android.util.Log
 import android.view.MenuItem
 import com.bumptech.glide.Glide
@@ -14,10 +15,12 @@ import com.google.android.youtube.player.YouTubePlayerSupportFragment
 import android.text.format.DateFormat
 import com.im.layarngaca21.BuildConfig
 import com.im.layarngaca21.R
+import com.im.layarngaca21.database.entity.Favorite
 import com.im.layarngaca21.model.Movie
 import com.im.layarngaca21.model.Trailer
 import com.im.layarngaca21.utils.CustomToast
 import com.im.layarngaca21.utils.ViewMessages
+import com.im.layarngaca21.utils.values.CategoryEnum
 import com.im.layarngaca21.utils.values.ToastEnum
 import com.im.layarngaca21.viewmodel.MovieDetailViewModel
 import java.text.SimpleDateFormat
@@ -32,6 +35,7 @@ class MovieDetailActivity : AppCompatActivity(), ViewMessages {
     private lateinit var youTubePlayerFragment: YouTubePlayerSupportFragment
     private lateinit var youTubePlayer: YouTubePlayer
     private lateinit var trailerKey: String
+    private var isFavorite: Boolean = false
 
     companion object{
         const val EXTRA_FILM = "EXTRA_FILM"
@@ -64,9 +68,35 @@ class MovieDetailActivity : AppCompatActivity(), ViewMessages {
             .into(iv_poster)
 
         moviesViewModel = ViewModelProviders.of(this).get(MovieDetailViewModel::class.java)
+        moviesViewModel.onViewAttached(item.id, CategoryEnum.MOVIE.value)
         moviesViewModel.getTrailer().observe(this, getTrailerKey)
+        moviesViewModel.getFavorite().observe(this, getFavorite)
         moviesViewModel.messagesEvent.setEventReceiver(this, this)
-        moviesViewModel.setTrailer(item.id, "movie")
+
+        btn_favorite.setOnClickListener {
+            val fav = Favorite(id= item.id, title = item.title, date = item.releaseDate, rate = item.rate, synopsis = item.synopsis, poster = item.poster, category = CategoryEnum.MOVIE.value)
+            if(isFavorite){
+                moviesViewModel.deleteFavorite(fav)
+            }else{
+                moviesViewModel.insertFavorite(fav)
+            }
+        }
+    }
+
+    private val getFavorite = object : Observer<List<Favorite>?> {
+        override fun onChanged(listFav: List<Favorite>?) {
+            if (listFav != null && listFav.size > 0) {
+                isFavorite = true
+                val ivAnimation = AnimatedVectorDrawableCompat.create(iv_heart.context, R.drawable.ic_heart_anim)
+                iv_heart.setImageDrawable(ivAnimation)
+                ivAnimation?.start()
+                iv_heart.imageTintList = getColorStateList(R.color.red)
+            }else{
+                iv_heart.setImageDrawable(getDrawable(R.drawable.ic_heart))
+                iv_heart.imageTintList = getColorStateList(R.color.grey)
+                isFavorite = false
+            }
+        }
     }
 
     private val getTrailerKey = object : Observer<Trailer?> {

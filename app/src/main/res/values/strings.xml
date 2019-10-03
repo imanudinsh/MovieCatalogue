@@ -7,7 +7,10 @@
     <string name="menu_movie">Movies</string>
     <string name="menu_tv_show">TV Shows</string>
     <string name="desc_ic_movie">Icon movies</string>
+    <string name="desc_ic_heart">Icon Heart</string>
     <string name="change_language_settings">Change language settings</string>
+    <string name="favorite">Favorite</string>
     <string name="icon_of_notification">Icon of notification</string>
     <string name="error_msg_bad_connection">There\'s something wrong, please check your connection internet.</string>
+    <string name="love_it">Love it</string>
 </resources>

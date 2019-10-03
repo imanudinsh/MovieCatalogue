@@ -1,0 +1,208 @@
+<animated-vector
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt">
+    <aapt:attr name="android:drawable">
+        <vector
+            android:name="vector"
+            android:width="512dp"
+            android:height="512dp"
+            android:viewportWidth="512"
+            android:viewportHeight="512">
+            <group android:name="springklle">
+                <path
+                    android:name="path_4"
+                    android:pathData="M 43.3 40.8 C 40.649 40.8 38.104 41.854 36.229 43.729 C 34.354 45.604 33.3 48.149 33.3 50.8 C 33.3 53.451 34.354 55.996 36.229 57.871 C 38.104 59.746 40.649 60.8 43.3 60.8 C 45.951 60.8 48.496 59.746 50.371 57.871 C 52.246 55.996 53.3 53.451 53.3 50.8 C 53.3 48.149 52.246 45.604 50.371 43.729 C 48.496 41.854 45.951 40.8 43.3 40.8 Z M 493.2 9.5 C 490.549 9.5 488.004 10.554 486.129 12.429 C 484.254 14.304 483.2 16.849 483.2 19.5 C 483.2 22.151 484.254 24.696 486.129 26.571 C 488.004 28.446 490.549 29.5 493.2 29.5 C 495.851 29.5 498.396 28.446 500.271 26.571 C 502.146 24.696 503.2 22.151 503.2 19.5 C 503.2 16.849 502.146 14.304 500.271 12.429 C 498.396 10.554 495.851 9.5 493.2 9.5 Z M 472 445.4 C 469.349 445.4 466.804 446.454 464.929 448.329 C 463.054 450.204 462 452.749 462 455.4 C 462 458.051 463.054 460.596 464.929 462.471 C 466.804 464.346 469.349 465.4 472 465.4 C 474.651 465.4 477.196 464.346 479.071 462.471 C 480.946 460.596 482 458.051 482 455.4 C 482 452.749 480.946 450.204 479.071 448.329 C 477.196 446.454 474.651 445.4 472 445.4 Z M 43.3 445.4 C 40.649 445.4 38.104 446.454 36.229 448.329 C 34.354 450.204 33.3 452.749 33.3 455.4 C 33.3 458.051 34.354 460.596 36.229 462.471 C 38.104 464.346 40.649 465.4 43.3 465.4 C 45.951 465.4 48.496 464.346 50.371 462.471 C 52.246 460.596 53.3 458.051 53.3 455.4 C 53.3 452.749 52.246 450.204 50.371 448.329 C 48.496 446.454 45.951 445.4 43.3 445.4 Z M 12.9 241.7 C 10.249 241.7 7.704 242.754 5.829 244.629 C 3.954 246.504 2.9 249.049 2.9 251.7 C 2.9 254.351 3.954 256.896 5.829 258.771 C 7.704 260.646 10.249 261.7 12.9 261.7 C 15.551 261.7 18.096 260.646 19.971 258.771 C 21.846 256.896 22.9 254.351 22.9 251.7 C 22.9 249.049 21.846 246.504 19.971 244.629 C 18.096 242.754 15.551 241.7 12.9 241.7 Z M 498.8 231.7 C 496.149 231.7 493.604 232.754 491.729 234.629 C 489.854 236.504 488.8 239.049 488.8 241.7 C 488.8 244.351 489.854 246.896 491.729 248.771 C 493.604 250.646 496.149 251.7 498.8 251.7 C 501.451 251.7 503.996 250.646 505.871 248.771 C 507.746 246.896 508.8 244.351 508.8 241.7 C 508.8 239.049 507.746 236.504 505.871 234.629 C 503.996 232.754 501.451 231.7 498.8 231.7 Z M 250.3 9.5 C 247.649 9.5 245.104 10.554 243.229 12.429 C 241.354 14.304 240.3 16.849 240.3 19.5 C 240.3 22.151 241.354 24.696 243.229 26.571 C 245.104 28.446 247.649 29.5 250.3 29.5 C 252.951 29.5 255.496 28.446 257.371 26.571 C 259.246 24.696 260.3 22.151 260.3 19.5 C 260.3 16.849 259.246 14.304 257.371 12.429 C 255.496 10.554 252.951 9.5 250.3 9.5 Z M 246 490 C 243.349 490 240.804 491.054 238.929 492.929 C 237.054 494.804 236 497.349 236 500 C 236 502.651 237.054 505.196 238.929 507.071 C 240.804 508.946 243.349 510 246 510 C 248.651 510 251.196 508.946 253.071 507.071 C 254.946 505.196 256 502.651 256 500 C 256 497.349 254.946 494.804 253.071 492.929 C 251.196 491.054 248.651 490 246 490 Z"
+                    android:fillColor="#f3ac13"
+                    android:strokeWidth="1"/>
+                <path
+                    android:name="path_5"
+                    android:pathData="M 32.9 325.3 C 27.598 325.3 22.507 327.409 18.758 331.158 C 15.009 334.907 12.9 339.998 12.9 345.3 C 12.9 350.602 15.009 355.693 18.758 359.442 C 22.507 363.191 27.598 365.3 32.9 365.3 C 38.202 365.3 43.293 363.191 47.042 359.442 C 50.791 355.693 52.9 350.602 52.9 345.3 C 52.9 339.998 50.791 334.907 47.042 331.158 C 43.293 327.409 38.202 325.3 32.9 325.3 Z M 371.8 4.5 C 366.498 4.5 361.407 6.609 357.658 10.358 C 353.909 14.107 351.8 19.198 351.8 24.5 C 351.8 29.802 353.909 34.893 357.658 38.642 C 361.407 42.391 366.498 44.5 371.8 44.5 C 377.102 44.5 382.193 42.391 385.942 38.642 C 389.691 34.893 391.8 29.802 391.8 24.5 C 391.8 19.198 389.691 14.107 385.942 10.358 C 382.193 6.609 377.102 4.5 371.8 4.5 Z M 393.3 470 C 387.998 470 382.907 472.109 379.158 475.858 C 375.409 479.607 373.3 484.698 373.3 490 C 373.3 495.302 375.409 500.393 379.158 504.142 C 382.907 507.891 387.998 510 393.3 510 C 398.602 510 403.693 507.891 407.442 504.142 C 411.191 500.393 413.3 495.302 413.3 490 C 413.3 484.698 411.191 479.607 407.442 475.858 C 403.693 472.109 398.602 470 393.3 470 Z M 110.5 470 C 105.198 470 100.107 472.109 96.358 475.858 C 92.609 479.607 90.5 484.698 90.5 490 C 90.5 495.302 92.609 500.393 96.358 504.142 C 100.107 507.891 105.198 510 110.5 510 C 115.802 510 120.893 507.891 124.642 504.142 C 128.391 500.393 130.5 495.302 130.5 490 C 130.5 484.698 128.391 479.607 124.642 475.858 C 120.893 472.109 115.802 470 110.5 470 Z M 492 336.2 C 486.698 336.2 481.607 338.309 477.858 342.058 C 474.109 345.807 472 350.898 472 356.2 C 472 361.502 474.109 366.593 477.858 370.342 C 481.607 374.091 486.698 376.2 492 376.2 C 497.302 376.2 502.393 374.091 506.142 370.342 C 509.891 366.593 512 361.502 512 356.2 C 512 350.898 509.891 345.807 506.142 342.058 C 502.393 338.309 497.302 336.2 492 336.2 Z M 488.8 107.2 C 484.577 107.2 480.461 108.537 477.044 111.02 C 473.628 113.502 471.084 117.003 469.779 121.02 C 468.474 125.036 468.474 129.364 469.779 133.38 C 471.084 137.397 473.628 140.898 477.044 143.38 C 480.461 145.863 484.577 147.2 488.8 147.2 C 494.102 147.2 499.193 145.091 502.942 141.342 C 506.691 137.593 508.8 132.502 508.8 127.2 C 508.8 121.898 506.691 116.807 502.942 113.058 C 499.193 109.309 494.102 107.2 488.8 107.2 Z M 121.3 4.5 C 115.998 4.5 110.907 6.609 107.158 10.358 C 103.409 14.107 101.3 19.198 101.3 24.5 C 101.3 29.802 103.409 34.893 107.158 38.642 C 110.907 42.391 115.998 44.5 121.3 44.5 C 126.602 44.5 131.693 42.391 135.442 38.642 C 139.191 34.893 141.3 29.802 141.3 24.5 C 141.3 19.198 139.191 14.107 135.442 10.358 C 131.693 6.609 126.602 4.5 121.3 4.5 Z M 23.3 99.6 C 17.998 99.6 12.907 101.709 9.158 105.458 C 5.409 109.207 3.3 114.298 3.3 119.6 C 3.3 124.902 5.409 129.993 9.158 133.742 C 12.907 137.491 17.998 139.6 23.3 139.6 C 28.602 139.6 33.693 137.491 37.442 133.742 C 41.191 129.993 43.3 124.902 43.3 119.6 C 43.3 114.298 41.191 109.207 37.442 105.458 C 33.693 101.709 28.602 99.6 23.3 99.6 Z"
+                    android:fillColor="#37c4aa"
+                    android:strokeWidth="1"/>
+                <path
+                    android:name="path_6"
+                    android:pathData="M 105.4 97.2 C 102.749 97.2 100.204 98.254 98.329 100.129 C 96.454 102.004 95.4 104.549 95.4 107.2 C 95.4 109.851 96.454 112.396 98.329 114.271 C 100.204 116.146 102.749 117.2 105.4 117.2 C 108.051 117.2 110.596 116.146 112.471 114.271 C 114.346 112.396 115.4 109.851 115.4 107.2 C 115.4 104.549 114.346 102.004 112.471 100.129 C 110.596 98.254 108.051 97.2 105.4 97.2 Z M 115.4 366.2 C 112.749 366.2 110.204 367.254 108.329 369.129 C 106.454 371.004 105.4 373.549 105.4 376.2 C 105.4 378.851 106.454 381.396 108.329 383.271 C 110.204 385.146 112.749 386.2 115.4 386.2 C 118.051 386.2 120.596 385.146 122.471 383.271 C 124.346 381.396 125.4 378.851 125.4 376.2 C 125.4 373.549 124.346 371.004 122.471 369.129 C 120.596 367.254 118.051 366.2 115.4 366.2 Z M 387.2 360.4 C 384.549 360.4 382.004 361.454 380.129 363.329 C 378.254 365.204 377.2 367.749 377.2 370.4 C 377.2 373.051 378.254 375.596 380.129 377.471 C 382.004 379.346 384.549 380.4 387.2 380.4 C 389.851 380.4 392.396 379.346 394.271 377.471 C 396.146 375.596 397.2 373.051 397.2 370.4 C 397.2 367.749 396.146 365.204 394.271 363.329 C 392.396 361.454 389.851 360.4 387.2 360.4 Z M 367.2 97.2 C 364.549 97.2 362.004 98.254 360.129 100.129 C 358.254 102.004 357.2 104.549 357.2 107.2 C 357.2 109.851 358.254 112.396 360.129 114.271 C 362.004 116.146 364.549 117.2 367.2 117.2 C 369.851 117.2 372.396 116.146 374.271 114.271 C 376.146 112.396 377.2 109.851 377.2 107.2 C 377.2 104.549 376.146 102.004 374.271 100.129 C 372.396 98.254 369.851 97.2 367.2 97.2 Z M 246 425.4 C 243.349 425.4 240.804 426.454 238.929 428.329 C 237.054 430.204 236 432.749 236 435.4 C 236 438.051 237.054 440.596 238.929 442.471 C 240.804 444.346 243.349 445.4 246 445.4 C 248.651 445.4 251.196 444.346 253.071 442.471 C 254.946 440.596 256 438.051 256 435.4 C 256 432.749 254.946 430.204 253.071 428.329 C 251.196 426.454 248.651 425.4 246 425.4 Z M 250.3 60.8 C 247.649 60.8 245.104 61.854 243.229 63.729 C 241.354 65.604 240.3 68.149 240.3 70.8 C 240.3 73.451 241.354 75.996 243.229 77.871 C 245.104 79.746 247.649 80.8 250.3 80.8 C 252.951 80.8 255.496 79.746 257.371 77.871 C 259.246 75.996 260.3 73.451 260.3 70.8 C 260.3 68.149 259.246 65.604 257.371 63.729 C 255.496 61.854 252.951 60.8 250.3 60.8 Z M 62.9 202.4 C 60.249 202.4 57.704 203.454 55.829 205.329 C 53.954 207.204 52.9 209.749 52.9 212.4 C 52.9 215.051 53.954 217.596 55.829 219.471 C 57.704 221.346 60.249 222.4 62.9 222.4 C 65.551 222.4 68.096 221.346 69.971 219.471 C 71.846 217.596 72.9 215.051 72.9 212.4 C 72.9 209.749 71.846 207.204 69.971 205.329 C 68.096 203.454 65.551 202.4 62.9 202.4 Z M 462 248.7 C 459.349 248.7 456.804 249.754 454.929 251.629 C 453.054 253.504 452 256.049 452 258.7 C 452 261.351 453.054 263.896 454.929 265.771 C 456.804 267.646 459.349 268.7 462 268.7 C 464.651 268.7 467.196 267.646 469.071 265.771 C 470.946 263.896 472 261.351 472 258.7 C 472 256.049 470.946 253.504 469.071 251.629 C 467.196 249.754 464.651 248.7 462 248.7 Z"
+                    android:fillColor="#f3ac13"
+                    android:strokeWidth="1"/>
+            </group>
+            <group android:name="scalecirclefadein">
+                <path
+                    android:name="path_1"
+                    android:pathData="M 256.5 2 C 189.028 2 124.251 28.832 76.541 76.541 C 28.832 124.251 2 189.028 2 256.5 C 2 323.972 28.832 388.749 76.541 436.459 C 124.251 484.168 189.028 511 256.5 511 C 323.972 511 388.749 484.168 436.459 436.459 C 484.168 388.749 511 323.972 511 256.5 C 511 189.028 484.168 124.251 436.459 76.541 C 388.749 28.832 323.972 2 256.5 2 Z"
+                    android:fillColor="#37c4aa"
+                    android:fillAlpha="0"
+                    android:strokeWidth="1"/>
+            </group>
+            <group android:name="scalecirclefadeout"/>
+            <group android:name="scale">
+                <path
+                    android:name="path"
+                    android:pathData="M 429.3 108.4 C 408 85.3 378.7 72.5 346.9 72.5 C 323.1 72.5 301.3 80 282.2 94.8 C 272.5 102.3 263.8 111.4 256 122.1 C 248.3 111.4 239.5 102.3 229.8 94.8 C 210.6 80 188.8 72.5 165.1 72.5 C 133.3 72.5 104 85.2 82.7 108.4 C 61.6 131.2 50 162.4 50 196.3 C 50 231.1 63 263 90.9 296.7 C 115.8 326.8 151.7 357.3 193.2 392.7 C 207.4 404.8 223.4 418.5 240.1 433.1 C 244.5 437 250.2 439.1 256 439.1 C 261.9 439.1 267.5 437 271.9 433.1 C 288.6 418.5 304.7 404.8 318.8 392.7 C 360.3 357.3 396.1 326.8 421.1 296.7 C 449 263 462 231.1 462 196.3 C 462 162.4 450.4 131.2 429.3 108.4 Z"
+                    android:fillColor="#7e7e7e"
+                    android:strokeWidth="1"/>
+            </group>
+        </vector>
+    </aapt:attr>
+    <target android:name="scale">
+        <aapt:attr name="android:animation">
+            <set>
+                <objectAnimator
+                    android:propertyName="scaleX"
+                    android:duration="900"
+                    android:valueFrom="0.4"
+                    android:valueTo="1"
+                    android:valueType="floatType"
+                    android:interpolator="@android:anim/bounce_interpolator"/>
+                <objectAnimator
+                    android:propertyName="scaleY"
+                    android:duration="900"
+                    android:valueFrom="0.4"
+                    android:valueTo="1"
+                    android:valueType="floatType"
+                    android:interpolator="@android:anim/bounce_interpolator"/>
+                <objectAnimator
+                    android:propertyName="pivotX"
+                    android:duration="900"
+                    android:valueFrom="256"
+                    android:valueTo="256"
+                    android:valueType="floatType"
+                    android:interpolator="@android:interpolator/fast_out_slow_in"/>
+                <objectAnimator
+                    android:propertyName="pivotY"
+                    android:duration="900"
+                    android:valueFrom="256"
+                    android:valueTo="256"
+                    android:valueType="floatType"
+                    android:interpolator="@android:interpolator/fast_out_slow_in"/>
+            </set>
+        </aapt:attr>
+    </target>
+    <target android:name="path">
+        <aapt:attr name="android:animation">
+            <objectAnimator
+                android:propertyName="fillColor"
+                android:startOffset="100"
+                android:duration="200"
+                android:valueFrom="#7e7e7e"
+                android:valueTo="#e74011"
+                android:valueType="colorType"
+                android:interpolator="@android:anim/overshoot_interpolator"/>
+        </aapt:attr>
+    </target>
+    <target android:name="scalecirclefadein">
+        <aapt:attr name="android:animation">
+            <set>
+                <objectAnimator
+                    android:propertyName="pivotX"
+                    android:duration="900"
+                    android:valueFrom="256"
+                    android:valueTo="256"
+                    android:valueType="floatType"
+                    android:interpolator="@android:interpolator/fast_out_slow_in"/>
+                <objectAnimator
+                    android:propertyName="pivotY"
+                    android:duration="900"
+                    android:valueFrom="256"
+                    android:valueTo="256"
+                    android:valueType="floatType"
+                    android:interpolator="@android:interpolator/fast_out_slow_in"/>
+                <objectAnimator
+                    android:propertyName="scaleX"
+                    android:duration="450"
+                    android:valueFrom="0"
+                    android:valueTo="1"
+                    android:valueType="floatType"
+                    android:interpolator="@android:anim/accelerate_interpolator"/>
+                <objectAnimator
+                    android:propertyName="scaleY"
+                    android:duration="450"
+                    android:valueFrom="0"
+                    android:valueTo="1"
+                    android:valueType="floatType"
+                    android:interpolator="@android:anim/accelerate_interpolator"/>
+            </set>
+        </aapt:attr>
+    </target>
+    <target android:name="path_1">
+        <aapt:attr name="android:animation">
+            <objectAnimator
+                android:propertyName="fillAlpha"
+                android:startOffset="16"
+                android:duration="200"
+                android:valueFrom="1"
+                android:valueTo="0"
+                android:valueType="floatType"
+                android:interpolator="@android:anim/accelerate_interpolator"/>
+        </aapt:attr>
+    </target>
+    <target android:name="springklle">
+        <aapt:attr name="android:animation">
+            <set>
+                <objectAnimator
+                    android:propertyName="pivotX"
+                    android:duration="900"
+                    android:valueFrom="256"
+                    android:valueTo="256"
+                    android:valueType="floatType"
+                    android:interpolator="@android:interpolator/fast_out_slow_in"/>
+                <objectAnimator
+                    android:propertyName="pivotY"
+                    android:duration="900"
+                    android:valueFrom="256"
+                    android:valueTo="256"
+                    android:valueType="floatType"
+                    android:interpolator="@android:interpolator/fast_out_slow_in"/>
+                <objectAnimator
+                    android:propertyName="scaleX"
+                    android:duration="200"
+                    android:valueFrom="0"
+                    android:valueTo="1"
+                    android:valueType="floatType"
+                    android:interpolator="@android:interpolator/fast_out_slow_in"/>
+                <objectAnimator
+                    android:propertyName="scaleY"
+                    android:duration="200"
+                    android:valueFrom="0"
+                    android:valueTo="1"
+                    android:valueType="floatType"
+                    android:interpolator="@android:interpolator/fast_out_slow_in"/>
+            </set>
+        </aapt:attr>
+    </target>
+    <target android:name="path_4">
+        <aapt:attr name="android:animation">
+            <objectAnimator
+                android:propertyName="fillAlpha"
+                android:startOffset="139"
+                android:duration="100"
+                android:valueFrom="1"
+                android:valueTo="0"
+                android:valueType="floatType"
+                android:interpolator="@android:anim/bounce_interpolator"/>
+        </aapt:attr>
+    </target>
+    <target android:name="path_5">
+        <aapt:attr name="android:animation">
+            <objectAnimator
+                android:propertyName="fillAlpha"
+                android:startOffset="139"
+                android:duration="100"
+                android:valueFrom="1"
+                android:valueTo="0"
+                android:valueType="floatType"
+                android:interpolator="@android:anim/bounce_interpolator"/>
+        </aapt:attr>
+    </target>
+    <target android:name="path_6">
+        <aapt:attr name="android:animation">
+            <objectAnimator
+                android:propertyName="fillAlpha"
+                android:startOffset="139"
+                android:duration="100"
+                android:valueFrom="1"
+                android:valueTo="0"
+                android:valueType="floatType"
+                android:interpolator="@android:anim/bounce_interpolator"/>
+        </aapt:attr>
+    </target>
+</animated-vector>

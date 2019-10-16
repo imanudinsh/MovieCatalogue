@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import android.content.Intent
+import android.content.SharedPreferences
+import android.preference.PreferenceManager
 import android.provider.Settings
 import android.support.v4.view.ViewPager
 import android.view.Menu
@@ -12,13 +14,21 @@ import android.view.MenuItem
 import com.im.layarngaca21.R
 import android.support.graphics.drawable.AnimatedVectorDrawableCompat
 import android.support.v4.app.ActivityOptionsCompat
+import android.util.Log
 import android.support.v4.util.Pair as UtilPair
 import android.view.View
+import com.im.layarngaca21.utils.values.SharedPreferenesEnum
 import com.im.layarngaca21.view.favorite.FavoriteActivity
+import com.im.layarngaca21.view.reminder.ReminderReceiver
+import com.im.layarngaca21.view.reminder.ReminderSettingActivity
+import com.im.layarngaca21.view.search.SearchActivity
 import kotlinx.android.synthetic.main.activity_main.toolbar
 
 
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var reminderReceiver: ReminderReceiver
+    private lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,6 +41,27 @@ class MainActivity : AppCompatActivity() {
         tabs.setupWithViewPager(vp_main)
 
 
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)
+        val releaseRemainderActive = sharedPreferences.getBoolean(SharedPreferenesEnum.RELEASE_REMINDER.value, true)
+        val dailyRemainderActive = sharedPreferences.getBoolean(SharedPreferenesEnum.DAILY_REMINDER.value, true)
+
+        reminderReceiver = ReminderReceiver()
+
+        val isReleaseReminderActive = reminderReceiver.isReminderSet(this, SharedPreferenesEnum.RELEASE_REMINDER.value )
+        val isDailyReminderActive = reminderReceiver.isReminderSet(this, SharedPreferenesEnum.DAILY_REMINDER.value )
+
+        Log.d("MainActivity", "release reminder $isReleaseReminderActive set $releaseRemainderActive")
+        Log.d("MainActivity", "daily reminder $isDailyReminderActive set $dailyRemainderActive")
+
+
+        if(!isDailyReminderActive&& dailyRemainderActive){
+            reminderReceiver.setRepeatingReminder(this, SharedPreferenesEnum.DAILY_REMINDER.value,"07:00", resources.getString(R.string.daily_reminder_msg))
+        }
+
+        if(!isReleaseReminderActive&& releaseRemainderActive){
+            reminderReceiver.setRepeatingReminder(this, SharedPreferenesEnum.RELEASE_REMINDER.value,"08:00",resources.getString(R.string.daily_reminder_msg))
+        }
+
 
     }
 
@@ -40,14 +71,19 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val pairTransition = UtilPair.create<View, String>(toolbar, "container")
+        val options = ActivityOptionsCompat.makeSceneTransitionAnimation(this, pairTransition)
         if (item.getItemId() == R.id.action_change_settings) {
             val mIntent = Intent(Settings.ACTION_LOCALE_SETTINGS)
             startActivity(mIntent)
+        }else if(item.getItemId() == R.id.action_reminder_setting){
+            val intent = Intent(this, ReminderSettingActivity::class.java)
+            startActivity(intent, options.toBundle())
         }else if(item.getItemId() == R.id.action_favorite){
-
-            val pairTransition = UtilPair.create<View, String>(toolbar, "container")
-            val options = ActivityOptionsCompat.makeSceneTransitionAnimation(this, pairTransition)
             val intent = Intent(this, FavoriteActivity::class.java)
+            startActivity(intent, options.toBundle())
+        }else if(item.getItemId() == R.id.action_search){
+            val intent = Intent(this, SearchActivity::class.java)
             startActivity(intent, options.toBundle())
         }
         return super.onOptionsItemSelected(item)

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <LinearLayout
+            android:id="@+id/content_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+        <TextView
+                android:id="@+id/banner_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/margin_padding_8dp"
+                android:paddingBottom="@dimen/margin_padding_8dp"
+                android:paddingStart="@dimen/margin_padding_16dp"
+                android:paddingEnd="@dimen/margin_padding_16dp"
+                android:background="@drawable/bg_rounded_gradient"
+                android:text="@string/appwidget_text"
+                android:fontFamily="@font/exo_bold"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+        <StackView
+                android:id="@+id/stack_view"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:loopViews="true" />
+
+    </LinearLayout>
+    <LinearLayout
+            android:id="@+id/empty_view"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@drawable/bg_rounded_gradient"
+            android:backgroundTint="@color/white"
+            android:alpha="0.5"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="vertical">
+        <ImageView
+                android:layout_width="50dp"
+                android:layout_height="35dp"
+                android:src="@drawable/ic_food"
+                android:contentDescription="@string/desc_ic_movie"/>
+
+        <TextView
+                android:id="@+id/tv_no_data"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:text="@string/no_movie_favorite"
+                android:textColor="@color/black"
+                android:fontFamily="@font/exo"
+                android:textSize="6sp"/>
+    </LinearLayout>
+
+
+</FrameLayout>

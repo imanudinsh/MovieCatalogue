@@ -1,23 +1,25 @@
 package com.im.layarngaca21.view.favorite
 
+import android.appwidget.AppWidgetManager
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
+import android.content.ComponentName
+import android.content.Intent
 import android.os.Bundle
 import android.support.graphics.drawable.AnimatedVectorDrawableCompat
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
 import android.transition.TransitionInflater
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.im.layarngaca21.R
 import com.im.layarngaca21.database.entity.Favorite
 import com.im.layarngaca21.model.Movie
-import com.im.layarngaca21.utils.CustomToast
 import com.im.layarngaca21.utils.ViewMessages
 import com.im.layarngaca21.utils.values.CategoryEnum
 import com.im.layarngaca21.view.main.MovieViewAdapter
+import com.im.layarngaca21.view.widget.ImageBannerWidget
 import com.im.layarngaca21.viewmodel.MoviesViewModel
 import kotlinx.android.synthetic.main.fragment_movie.*
 
@@ -68,6 +70,7 @@ class FavoriteMovieFragment : Fragment(), ViewMessages{
         moviesViewModel.getAllFavorites().observe(this, getFavorite)
         moviesViewModel.messagesEvent.setEventReceiver(this, this)
 
+        tv_no_data.text = resources.getString(R.string.no_movie_favorite)
     }
 
     private val getFavorite = object : Observer<List<Favorite>?> {
@@ -81,6 +84,18 @@ class FavoriteMovieFragment : Fragment(), ViewMessages{
                 adapter.setData(listMovie)
 
             }
+            view_no_data.visibility = if(adapter.itemCount>0) View.GONE else View.VISIBLE
+
+            val intent = Intent(activity, ImageBannerWidget::class.java)
+            intent.action = AppWidgetManager.ACTION_APPWIDGET_UPDATE
+            val appWidgetManager = AppWidgetManager.getInstance(context)
+            val ids = appWidgetManager.getAppWidgetIds(
+                ComponentName(context,
+                    ImageBannerWidget::class.java)
+            )
+            intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, ids)
+            context?.sendBroadcast(intent)
+            appWidgetManager.notifyAppWidgetViewDataChanged(ids, R.id.stack_view)
         }
     }
 

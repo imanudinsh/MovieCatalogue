@@ -2,10 +2,20 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
       xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
+            android:id="@+id/action_search"
+            android:title="@string/search"
+            android:icon="@drawable/ic_search"
+            app:showAsAction="always"/>
+
+    <item
             android:id="@+id/action_favorite"
             android:title="@string/favorite"
             android:icon="@drawable/ic_heart"
             app:showAsAction="always"/>
+    <item
+            android:id="@+id/action_reminder_setting"
+            android:title="@string/reminder_setting_title"
+            app:showAsAction="never"/>
     <item
             android:id="@+id/action_change_settings"
             android:title="@string/change_language_settings"

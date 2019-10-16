@@ -1,23 +1,25 @@
 package com.im.layarngaca21.view.favorite
 
+import android.appwidget.AppWidgetManager
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
+import android.content.ComponentName
+import android.content.Intent
 import android.os.Bundle
 import android.support.graphics.drawable.AnimatedVectorDrawableCompat
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
 import android.transition.TransitionInflater
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.im.layarngaca21.R
 import com.im.layarngaca21.database.entity.Favorite
 import com.im.layarngaca21.model.TV
-import com.im.layarngaca21.utils.CustomToast
 import com.im.layarngaca21.utils.ViewMessages
 import com.im.layarngaca21.utils.values.CategoryEnum
 import com.im.layarngaca21.view.main.TVShowViewAdapter
+import com.im.layarngaca21.view.widget.ImageBannerWidget
 import com.im.layarngaca21.viewmodel.TVShowsViewModel
 import kotlinx.android.synthetic.main.fragment_tv_show.*
 
@@ -69,6 +71,7 @@ class FavoriteTVShowFragment : Fragment(), ViewMessages {
         tvShowsViewModel.getAllFavorites().observe(this, getFavorite)
         tvShowsViewModel.messagesEvent.setEventReceiver(this, this)
 
+        tv_no_data.text = resources.getString(R.string.no_tv_show_favorite)
     }
 
 
@@ -82,6 +85,18 @@ class FavoriteTVShowFragment : Fragment(), ViewMessages {
                 }
                 adapter.setData(listTV)
             }
+            view_no_data.visibility = if(adapter.itemCount>0) View.GONE else View.VISIBLE
+
+            val intent = Intent(activity, ImageBannerWidget::class.java)
+            intent.action = AppWidgetManager.ACTION_APPWIDGET_UPDATE
+            val appWidgetManager = AppWidgetManager.getInstance(context)
+            val ids = appWidgetManager.getAppWidgetIds(
+                ComponentName(context,
+                    ImageBannerWidget::class.java)
+            )
+            intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, ids)
+            context?.sendBroadcast(intent)
+            appWidgetManager.notifyAppWidgetViewDataChanged(ids, R.id.stack_view)
         }
     }
 
@@ -93,7 +108,6 @@ class FavoriteTVShowFragment : Fragment(), ViewMessages {
 
 
     override fun showMessage(message: Int, category: String) {
-        view_no_data.visibility = if(adapter.itemCount>0) View.GONE else View.VISIBLE
     }
 
 }

@@ -1,7 +1,10 @@
 package com.im.layarngaca21.view.main
 
+import android.appwidget.AppWidgetManager
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
+import android.content.ComponentName
+import android.content.Intent
 import android.os.Bundle
 import android.support.graphics.drawable.AnimatedVectorDrawableCompat
 import android.support.v4.app.Fragment
@@ -17,6 +20,7 @@ import com.im.layarngaca21.model.TV
 import com.im.layarngaca21.utils.CustomToast
 import com.im.layarngaca21.utils.ViewMessages
 import com.im.layarngaca21.utils.values.CategoryEnum
+import com.im.layarngaca21.view.widget.ImageBannerWidget
 import com.im.layarngaca21.viewmodel.TVShowsViewModel
 import kotlinx.android.synthetic.main.fragment_tv_show.*
 
@@ -79,6 +83,17 @@ class TVShowFragment : Fragment(), ViewMessages {
             if (listFav != null) {
                 adapter.setFavorites(listFav)
             }
+
+            val intent = Intent(activity, ImageBannerWidget::class.java)
+            intent.action = AppWidgetManager.ACTION_APPWIDGET_UPDATE
+            val appWidgetManager = AppWidgetManager.getInstance(context)
+            val ids = appWidgetManager.getAppWidgetIds(
+                ComponentName(context,
+                    ImageBannerWidget::class.java)
+            )
+            intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, ids)
+            context?.sendBroadcast(intent)
+            appWidgetManager.notifyAppWidgetViewDataChanged(ids, R.id.stack_view)
         }
     }
     private val getTV = object : Observer<List<TV>?> {

@@ -49,7 +49,9 @@ class MoviesViewModel(application: Application) : AndroidViewModel(application) 
                             val movieResponse = Gson().fromJson(String(responseBody), MovieResponse::class.java)
                             listMovies.postValue(movieResponse.results)
                         }else{
-                            messagesEvent.sendEvent { showMessage(R.string.error_msg_bad_connection, ToastEnum.FAILED.value)}
+                            messagesEvent.sendEvent {
+                                Log.d("MovieViewModel",responseBody.toString())
+                                showMessage(R.string.error_msg_bad_connection, ToastEnum.FAILED.value)}
                         }
 
 

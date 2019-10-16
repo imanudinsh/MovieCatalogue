@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Layar Ngaca 21</string>
     <string name="read_more">Read More</string>
     <string name="user_score">User score</string>
@@ -11,6 +11,23 @@
     <string name="change_language_settings">Change language settings</string>
     <string name="favorite">Favorite</string>
     <string name="icon_of_notification">Icon of notification</string>
-    <string name="error_msg_bad_connection">There\'s something wrong, please check your connection internet.</string>
+    <string name="error_msg_bad_connection">There\'s something wrong, please check your connection internet</string>
+    <string name="error_msg_search_not_found">The movie or tv show you were search was not found</string>
+    <string name="hint_search">Search movies or TV shows</string>
+    <string name="no_movie_favorite">There are no favorite movies yet</string>
+    <string name="no_tv_show_favorite">There are no favorite tv shows yet</string>
     <string name="love_it">Love it</string>
+    <string name="search">Search</string>
+    <string name="text_btn_search">Search</string>
+    <string name="appwidget_text">Layar Ngaca 21</string>
+    <string name="reminder_setting_title">Reminder setting</string>
+    <string name="release_reminder">Release reminder</string>
+    <string name="release_reminder_desc">Reminder showing movie that released today</string>
+    <string name="daily_reminder">Daily reminder</string>
+    <string name="daily_reminder_desc">Reminder for return to app</string>
+    <string name="daily_reminder_msg">Layar Ngaca 21 missing you ☹💔</string>
+    <string name="daily_reminder_active_msg">Daily reminder is activated</string>
+    <string name="daily_reminder_off_msg">Daily reminder is turned off</string>
+    <string name="release_reminder_active_msg">Release reminder is activated</string>
+    <string name="release_reminder_off_msg">Release reminder is turned off</string>
 </resources>

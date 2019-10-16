@@ -16,5 +16,5 @@ data class Movie(
     @SerializedName("overview")
     var synopsis: String,
     @SerializedName("poster_path")
-    var poster: String
+    var poster: String? = null
 ): Parcelable

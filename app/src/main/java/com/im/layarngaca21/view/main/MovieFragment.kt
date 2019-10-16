@@ -2,11 +2,11 @@ package com.im.layarngaca21.view.main
 
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
+import android.content.ComponentName
 import android.os.Bundle
 import android.support.graphics.drawable.AnimatedVectorDrawableCompat
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
-import android.transition.TransitionInflater
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -19,6 +19,9 @@ import com.im.layarngaca21.utils.ViewMessages
 import com.im.layarngaca21.utils.values.CategoryEnum
 import com.im.layarngaca21.viewmodel.MoviesViewModel
 import kotlinx.android.synthetic.main.fragment_movie.*
+import android.appwidget.AppWidgetManager
+import android.content.Intent
+import com.im.layarngaca21.view.widget.ImageBannerWidget
 
 
 class MovieFragment : Fragment(), ViewMessages{
@@ -33,8 +36,6 @@ class MovieFragment : Fragment(), ViewMessages{
         savedInstanceState: Bundle?
     ): View? {
         val mView = inflater.inflate(R.layout.fragment_movie, container, false)
-
-        activity?.window?.setSharedElementExitTransition(TransitionInflater.from(context).inflateTransition(R.transition.element_transition))
 
         adapter = MovieViewAdapter(activity!!, favListener = {movie, ivHeart, isFavorite ->
             val fav = Favorite(id= movie.id, title = movie.title, date = movie.releaseDate, rate = movie.rate, synopsis = movie.synopsis, poster = movie.poster, category = CategoryEnum.MOVIE.value)
@@ -77,6 +78,14 @@ class MovieFragment : Fragment(), ViewMessages{
             if (listFav != null) {
                 adapter.setFavorites(listFav)
             }
+
+            val intent = Intent(activity, ImageBannerWidget::class.java)
+            intent.action = AppWidgetManager.ACTION_APPWIDGET_UPDATE
+            val appWidgetManager = AppWidgetManager.getInstance(context)
+            val ids = appWidgetManager.getAppWidgetIds(ComponentName(context,ImageBannerWidget::class.java))
+            intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, ids)
+            context?.sendBroadcast(intent)
+            appWidgetManager.notifyAppWidgetViewDataChanged(ids, R.id.stack_view)
         }
     }
     private val getMovie = object : Observer<List<Movie>?> {

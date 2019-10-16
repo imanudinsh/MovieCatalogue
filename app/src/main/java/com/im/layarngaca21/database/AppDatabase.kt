@@ -10,7 +10,7 @@ import com.im.layarngaca21.database.entity.Favorite
 
 @Database(entities = [
     Favorite::class
-], version = 1, exportSchema = false)
+], version = 2, exportSchema = false)
 
 abstract class AppDatabase : RoomDatabase() {
     abstract fun favoriteDao(): FavoriteDao

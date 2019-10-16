@@ -1,7 +1,10 @@
 package com.im.layarngaca21.view.moviedetail
 
+import android.appwidget.AppWidgetManager
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
+import android.content.ComponentName
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -24,6 +27,7 @@ import com.im.layarngaca21.model.Trailer
 import com.im.layarngaca21.utils.CustomToast
 import com.im.layarngaca21.utils.ViewMessages
 import com.im.layarngaca21.utils.values.CategoryEnum
+import com.im.layarngaca21.view.widget.ImageBannerWidget
 import com.im.layarngaca21.viewmodel.MovieDetailViewModel
 import java.time.LocalDate
 import java.text.SimpleDateFormat
@@ -98,6 +102,17 @@ class TVShowDetailActivity : AppCompatActivity() , ViewMessages {
                 iv_heart.imageTintList = getColorStateList(R.color.grey)
                 isFavorite = false
             }
+
+            val intent = Intent(this@TVShowDetailActivity, ImageBannerWidget::class.java)
+            intent.action = AppWidgetManager.ACTION_APPWIDGET_UPDATE
+            val appWidgetManager = AppWidgetManager.getInstance(this@TVShowDetailActivity)
+            val ids = appWidgetManager.getAppWidgetIds(
+                ComponentName(this@TVShowDetailActivity,
+                    ImageBannerWidget::class.java)
+            )
+            intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, ids)
+            sendBroadcast(intent)
+            appWidgetManager.notifyAppWidgetViewDataChanged(ids, R.id.stack_view)
         }
     }
 

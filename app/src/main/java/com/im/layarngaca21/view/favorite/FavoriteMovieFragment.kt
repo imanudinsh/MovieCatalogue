@@ -1,14 +1,14 @@
 package com.im.layarngaca21.view.favorite
 
 import android.appwidget.AppWidgetManager
-import android.arch.lifecycle.Observer
-import android.arch.lifecycle.ViewModelProviders
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import android.content.ComponentName
 import android.content.Intent
 import android.os.Bundle
-import android.support.graphics.drawable.AnimatedVectorDrawableCompat
-import android.support.v4.app.Fragment
-import android.support.v7.widget.LinearLayoutManager
+import androidx.vectordrawable.graphics.drawable.AnimatedVectorDrawableCompat
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
 import android.transition.TransitionInflater
 import android.view.LayoutInflater
 import android.view.View
@@ -24,7 +24,7 @@ import com.im.layarngaca21.viewmodel.MoviesViewModel
 import kotlinx.android.synthetic.main.fragment_movie.*
 
 
-class FavoriteMovieFragment : Fragment(), ViewMessages{
+class FavoriteMovieFragment : androidx.fragment.app.Fragment(), ViewMessages{
 
 
     private lateinit var moviesViewModel: MoviesViewModel
@@ -100,7 +100,7 @@ class FavoriteMovieFragment : Fragment(), ViewMessages{
     }
 
     private fun showRecyclerCardView() {
-        rv_category.layoutManager = LinearLayoutManager(context)
+        rv_category.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(context)
         rv_category.adapter = adapter
     }
 

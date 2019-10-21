@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Top Movies</string>
+    <string name="read_more">Read More</string>
+    <string name="user_score">User score</string>
+    <string name="synopsis">Synopsis</string>
+    <string name="img_poster_desc">Movie poster</string>
+    <string name="menu_movie">Movies</string>
+    <string name="menu_tv_show">TV Shows</string>
+    <string name="desc_ic_movie">Icon movies</string>
+    <string name="icon_of_notification">Icon of notification</string>
+    <string name="error_msg_bad_connection">There\'s something wrong, please check your connection internet</string>
+    <string name="no_movie_available">No movies available</string>
+</resources>

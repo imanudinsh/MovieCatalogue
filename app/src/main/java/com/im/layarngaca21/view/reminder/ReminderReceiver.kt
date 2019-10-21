@@ -9,8 +9,8 @@ import android.content.Context
 import android.content.Intent
 import android.media.RingtoneManager
 import android.os.Build
-import android.support.v4.app.NotificationCompat
-import android.support.v4.content.ContextCompat
+import androidx.core.app.NotificationCompat
+import androidx.core.content.ContextCompat
 import android.util.Log
 import com.google.gson.Gson
 import com.im.layarngaca21.BuildConfig
@@ -122,7 +122,7 @@ class ReminderReceiver : BroadcastReceiver() {
     }
 
     private fun showReleaseReminderNotification(context: Context,listMovie: List<Movie>?) {
-
+        Log.d("ReminderReceiver","$listMovie")
         val CHANNEL_ID = "Channel_2"
         val CHANNEL_NAME = "ReleaseReminder channel"
 
@@ -183,7 +183,7 @@ class ReminderReceiver : BroadcastReceiver() {
         calendar.set(Calendar.MINUTE, Integer.parseInt(timeArray[1]))
         calendar.set(Calendar.SECOND, 0)
 
-        var reminderTime = if (calendar.timeInMillis <= now.timeInMillis) calendar.timeInMillis+ (AlarmManager.INTERVAL_DAY+1) else calendar.timeInMillis
+        val reminderTime = if (calendar.timeInMillis <= now.timeInMillis) calendar.timeInMillis+ (AlarmManager.INTERVAL_DAY+1) else calendar.timeInMillis
 
 
 

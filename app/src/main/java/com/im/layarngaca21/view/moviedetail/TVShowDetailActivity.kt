@@ -1,11 +1,11 @@
 package com.im.layarngaca21.view.moviedetail
 
 import android.appwidget.AppWidgetManager
-import android.arch.lifecycle.Observer
-import android.arch.lifecycle.ViewModelProviders
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import android.content.ComponentName
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
@@ -15,8 +15,8 @@ import kotlinx.android.synthetic.main.activity_detail.*
 import com.google.android.youtube.player.YouTubeInitializationResult
 import com.google.android.youtube.player.YouTubePlayer
 import com.google.android.youtube.player.YouTubePlayerSupportFragment
-import android.support.design.widget.AppBarLayout
-import android.support.graphics.drawable.AnimatedVectorDrawableCompat
+import com.google.android.material.appbar.AppBarLayout
+import androidx.vectordrawable.graphics.drawable.AnimatedVectorDrawableCompat
 import android.text.format.DateFormat
 import com.im.layarngaca21.BuildConfig
 import com.im.layarngaca21.R

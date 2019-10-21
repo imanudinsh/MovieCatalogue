@@ -2,20 +2,20 @@ package com.im.layarngaca21.view.main
 
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import android.content.Intent
 import android.content.SharedPreferences
 import android.preference.PreferenceManager
 import android.provider.Settings
-import android.support.v4.view.ViewPager
+import androidx.viewpager.widget.ViewPager
 import android.view.Menu
 import android.view.MenuItem
 import com.im.layarngaca21.R
-import android.support.graphics.drawable.AnimatedVectorDrawableCompat
-import android.support.v4.app.ActivityOptionsCompat
+import androidx.vectordrawable.graphics.drawable.AnimatedVectorDrawableCompat
+import androidx.core.app.ActivityOptionsCompat
 import android.util.Log
-import android.support.v4.util.Pair as UtilPair
+import androidx.core.util.Pair as UtilPair
 import android.view.View
 import com.im.layarngaca21.utils.values.SharedPreferenesEnum
 import com.im.layarngaca21.view.favorite.FavoriteActivity
@@ -89,7 +89,7 @@ class MainActivity : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
-    private val viewPagerListener = object : ViewPager.OnPageChangeListener {
+    private val viewPagerListener = object : androidx.viewpager.widget.ViewPager.OnPageChangeListener {
         override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
 
         }

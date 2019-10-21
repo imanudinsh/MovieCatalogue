@@ -1,0 +1,25 @@
+<selector xmlns:tools="http://schemas.android.com/tools" xmlns:android="http://schemas.android.com/apk/res/android" tools:ignore="MissingDefaultResource">
+    <item android:state_pressed="true">
+        <shape android:shape="rectangle">
+            <gradient
+                android:endColor="@color/colorPrimary"
+                android:startColor="@color/colorPrimaryDark"
+                android:angle="135"
+                android:type="linear" />
+            <corners android:radius="100dp" />
+        </shape>
+    </item>
+    <item android:state_enabled="true" >
+        <shape
+               android:shape="rectangle">
+            <gradient
+                android:endColor="@color/colorPrimaryDark"
+                android:startColor="@color/colorPrimary"
+                android:angle="135"
+                android:type="linear" />
+            <corners android:radius="100dp" />
+        </shape>
+    </item>
+
+
+</selector>

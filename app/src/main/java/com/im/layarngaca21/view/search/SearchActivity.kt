@@ -1,11 +1,11 @@
 package com.im.layarngaca21.view.search
 
-import android.arch.lifecycle.Observer
-import android.arch.lifecycle.ViewModelProviders
-import android.support.v7.app.AppCompatActivity
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.support.graphics.drawable.AnimatedVectorDrawableCompat
-import android.support.v7.widget.LinearLayoutManager
+import androidx.vectordrawable.graphics.drawable.AnimatedVectorDrawableCompat
+import androidx.recyclerview.widget.LinearLayoutManager
 import android.util.Log
 import android.view.MenuItem
 import com.im.layarngaca21.R
@@ -182,10 +182,10 @@ class SearchActivity : AppCompatActivity(), ViewMessages {
 
     private fun showRecyclerCardView() {
         rv_movie.isNestedScrollingEnabled = false
-        rv_movie.layoutManager = LinearLayoutManager(this)
+        rv_movie.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(this)
         rv_movie.adapter = movieAdapter
         rv_tv.isNestedScrollingEnabled = false
-        rv_tv.layoutManager = LinearLayoutManager(this)
+        rv_tv.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(this)
         rv_tv.adapter = tvAdapter
     }
 

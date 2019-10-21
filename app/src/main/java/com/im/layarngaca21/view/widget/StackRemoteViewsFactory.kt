@@ -13,7 +13,6 @@ import android.os.Binder
 import android.os.Bundle
 import android.util.Log
 import com.bumptech.glide.request.target.Target
-import com.im.layarngaca21.database.AppDatabase
 import com.im.layarngaca21.database.DatabaseContract.FavColumns.Companion.CATEGORY
 import com.im.layarngaca21.database.DatabaseContract.FavColumns.Companion.CONTENT_URI
 import com.im.layarngaca21.database.DatabaseContract.FavColumns.Companion.DATE
@@ -21,7 +20,6 @@ import com.im.layarngaca21.database.DatabaseContract.FavColumns.Companion.POSTER
 import com.im.layarngaca21.database.DatabaseContract.FavColumns.Companion.RATE
 import com.im.layarngaca21.database.DatabaseContract.FavColumns.Companion.SYNOPSIS
 import com.im.layarngaca21.database.DatabaseContract.FavColumns.Companion.TITLE
-import com.im.layarngaca21.model.Movie
 import java.util.concurrent.ExecutionException
 
 

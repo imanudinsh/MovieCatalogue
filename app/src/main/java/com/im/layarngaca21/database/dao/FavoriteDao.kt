@@ -1,7 +1,7 @@
 package com.im.layarngaca21.database.dao
 
-import android.arch.lifecycle.LiveData
-import android.arch.persistence.room.*
+import androidx.lifecycle.LiveData
+import androidx.room.*
 import android.database.Cursor
 import com.im.layarngaca21.database.entity.Favorite
 

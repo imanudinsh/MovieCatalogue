@@ -1,14 +1,14 @@
 package com.im.layarngaca21.view.main
 
 import android.appwidget.AppWidgetManager
-import android.arch.lifecycle.Observer
-import android.arch.lifecycle.ViewModelProviders
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import android.content.ComponentName
 import android.content.Intent
 import android.os.Bundle
-import android.support.graphics.drawable.AnimatedVectorDrawableCompat
-import android.support.v4.app.Fragment
-import android.support.v7.widget.LinearLayoutManager
+import androidx.vectordrawable.graphics.drawable.AnimatedVectorDrawableCompat
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
 import android.transition.TransitionInflater
 import android.util.Log
 import android.view.LayoutInflater
@@ -25,7 +25,7 @@ import com.im.layarngaca21.viewmodel.TVShowsViewModel
 import kotlinx.android.synthetic.main.fragment_tv_show.*
 
 
-class TVShowFragment : Fragment(), ViewMessages {
+class TVShowFragment : androidx.fragment.app.Fragment(), ViewMessages {
 
 
     private lateinit  var tvShowsViewModel: TVShowsViewModel
@@ -37,8 +37,6 @@ class TVShowFragment : Fragment(), ViewMessages {
         savedInstanceState: Bundle?
     ): View? {
         val mView = inflater.inflate(R.layout.fragment_tv_show, container, false)
-
-        activity?.window?.setSharedElementExitTransition(TransitionInflater.from(context).inflateTransition(R.transition.element_transition))
 
         adapter = TVShowViewAdapter(activity!!, favListener = {movie, ivHeart, isFavorite ->
             val fav = Favorite(id= movie.id, title = movie.name, date = movie.firsAirDate, rate = movie.rate, synopsis = movie.synopsis, poster = movie.poster, category = CategoryEnum.TV.value)
@@ -108,7 +106,7 @@ class TVShowFragment : Fragment(), ViewMessages {
     }
 
     private fun showRecyclerCardView() {
-        rv_category.layoutManager = LinearLayoutManager(context)
+        rv_category.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(context)
         rv_category.adapter = adapter
     }
 

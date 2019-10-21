@@ -1,13 +1,13 @@
 package com.im.layarngaca21.view.moviedetail
 
 import android.appwidget.AppWidgetManager
-import android.arch.lifecycle.Observer
-import android.arch.lifecycle.ViewModelProviders
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import android.content.ComponentName
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.support.graphics.drawable.AnimatedVectorDrawableCompat
+import androidx.vectordrawable.graphics.drawable.AnimatedVectorDrawableCompat
 import android.util.Log
 import android.view.MenuItem
 import com.bumptech.glide.Glide

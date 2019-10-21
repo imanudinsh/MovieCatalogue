@@ -2,8 +2,8 @@ package com.im.layarngaca21.view.main
 
 import android.app.Activity
 import android.content.Intent
-import android.support.v4.app.ActivityOptionsCompat
-import android.support.v7.widget.RecyclerView
+import androidx.core.app.ActivityOptionsCompat
+import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -16,9 +16,9 @@ import com.im.layarngaca21.database.entity.Favorite
 import com.im.layarngaca21.model.TV
 import com.im.layarngaca21.view.moviedetail.TVShowDetailActivity
 import kotlinx.android.synthetic.main.item_row.view.*
-import android.support.v4.util.Pair as UtilPair
+import androidx.core.util.Pair as UtilPair
 
-class TVShowViewAdapter(val activity: Activity, val favListener: (TV, ImageView, Boolean) -> Unit) : RecyclerView.Adapter<TVShowViewAdapter.CardViewViewHolder>() {
+class TVShowViewAdapter(val activity: Activity, val favListener: (TV, ImageView, Boolean) -> Unit) : androidx.recyclerview.widget.RecyclerView.Adapter<TVShowViewAdapter.CardViewViewHolder>() {
 
     private val mData = mutableListOf<TV>()
     private val listFavorites = mutableListOf<Favorite>()
@@ -95,5 +95,5 @@ class TVShowViewAdapter(val activity: Activity, val favListener: (TV, ImageView,
 
     }
 
-    inner class CardViewViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
+    inner class CardViewViewHolder(itemView: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(itemView)
 }

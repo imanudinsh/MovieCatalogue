@@ -1,7 +1,7 @@
 package com.im.layarngaca21.utils
 
-import android.arch.lifecycle.LifecycleOwner
-import android.arch.lifecycle.Observer
+import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.Observer
 
 class LiveMessageEvent<T> : SingleLiveEvent<(T.() -> Unit)?>() {
 

@@ -1,6 +1,6 @@
 package com.im.layarngaca21.database.repository
 
-import android.arch.lifecycle.LiveData
+import androidx.lifecycle.LiveData
 import android.os.AsyncTask
 import com.im.layarngaca21.database.dao.FavoriteDao
 import com.im.layarngaca21.database.entity.Favorite

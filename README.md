@@ -1,0 +1,1 @@
+this repository is about an android application that displays a list of movies and tv shows from The Movie DB API . from the application, user can view movie details, search, add movies that he likes, add stackwidget to homescreen and alarm notifications if there is a film release.

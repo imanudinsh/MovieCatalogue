@@ -1,4 +1,4 @@
-package com.im.layarngaca21.view.reminder
+package com.im.layarngaca21.ui.reminder
 
 import android.app.AlarmManager
 import android.app.NotificationChannel
@@ -20,7 +20,7 @@ import com.im.layarngaca21.model.MovieResponse
 import com.im.layarngaca21.utils.CustomToast
 import com.im.layarngaca21.utils.values.ResponseCodeEnum
 import com.im.layarngaca21.utils.values.ToastEnum
-import com.im.layarngaca21.view.moviedetail.MovieDetailActivity
+import com.im.layarngaca21.ui.moviedetail.MovieDetailActivity
 import com.loopj.android.http.AsyncHttpClient
 import com.loopj.android.http.AsyncHttpResponseHandler
 import cz.msebera.android.httpclient.Header

@@ -1,4 +1,4 @@
-package com.im.layarngaca21.view.main
+package com.im.layarngaca21.ui.main
 
 
 import android.os.Bundle
@@ -8,7 +8,6 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.preference.PreferenceManager
 import android.provider.Settings
-import androidx.viewpager.widget.ViewPager
 import android.view.Menu
 import android.view.MenuItem
 import com.im.layarngaca21.R
@@ -18,10 +17,10 @@ import android.util.Log
 import androidx.core.util.Pair as UtilPair
 import android.view.View
 import com.im.layarngaca21.utils.values.SharedPreferenesEnum
-import com.im.layarngaca21.view.favorite.FavoriteActivity
-import com.im.layarngaca21.view.reminder.ReminderReceiver
-import com.im.layarngaca21.view.reminder.ReminderSettingActivity
-import com.im.layarngaca21.view.search.SearchActivity
+import com.im.layarngaca21.ui.favorite.FavoriteActivity
+import com.im.layarngaca21.ui.reminder.ReminderReceiver
+import com.im.layarngaca21.ui.reminder.ReminderSettingActivity
+import com.im.layarngaca21.ui.search.SearchActivity
 import kotlinx.android.synthetic.main.activity_main.toolbar
 
 

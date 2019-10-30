@@ -7,7 +7,7 @@
         android:layout_height="match_parent"
         android:transitionName="container"
         android:background="@color/white"
-        tools:context=".view.favorite.FavoriteActivity">
+        tools:context=".ui.favorite.FavoriteActivity">
 
 
     <com.google.android.material.appbar.AppBarLayout

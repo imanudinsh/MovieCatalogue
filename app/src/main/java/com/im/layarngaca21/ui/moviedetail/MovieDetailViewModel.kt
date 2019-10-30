@@ -1,10 +1,9 @@
-package com.im.layarngaca21.viewmodel
+package com.im.layarngaca21.ui.moviedetail
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import android.util.Log
 import com.google.gson.Gson
 import com.im.layarngaca21.BuildConfig
@@ -20,7 +19,6 @@ import com.im.layarngaca21.model.Trailer
 import com.im.layarngaca21.model.TrailerResponse
 import com.im.layarngaca21.utils.LiveMessageEvent
 import com.im.layarngaca21.utils.ViewMessages
-import com.im.layarngaca21.utils.values.CategoryEnum
 import com.im.layarngaca21.utils.values.ResponseCodeEnum
 import com.im.layarngaca21.utils.values.ToastEnum
 

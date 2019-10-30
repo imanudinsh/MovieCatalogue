@@ -1,4 +1,4 @@
-package com.im.layarngaca21.view.reminder
+package com.im.layarngaca21.ui.reminder
 
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity

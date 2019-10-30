@@ -1,4 +1,4 @@
-package com.im.layarngaca21.view.moviedetail
+package com.im.layarngaca21.ui.moviedetail
 
 import android.appwidget.AppWidgetManager
 import androidx.lifecycle.Observer
@@ -7,34 +7,31 @@ import android.content.ComponentName
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.vectordrawable.graphics.drawable.AnimatedVectorDrawableCompat
 import android.util.Log
 import android.view.MenuItem
-import android.view.View
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.activity_detail.*
 import com.google.android.youtube.player.YouTubeInitializationResult
 import com.google.android.youtube.player.YouTubePlayer
 import com.google.android.youtube.player.YouTubePlayerSupportFragment
-import com.google.android.material.appbar.AppBarLayout
-import androidx.vectordrawable.graphics.drawable.AnimatedVectorDrawableCompat
 import android.text.format.DateFormat
 import com.im.layarngaca21.BuildConfig
 import com.im.layarngaca21.R
 import com.im.layarngaca21.database.entity.Favorite
 import com.im.layarngaca21.model.Movie
-import com.im.layarngaca21.model.TV
 import com.im.layarngaca21.model.Trailer
 import com.im.layarngaca21.utils.CustomToast
 import com.im.layarngaca21.utils.ViewMessages
 import com.im.layarngaca21.utils.values.CategoryEnum
-import com.im.layarngaca21.view.widget.ImageBannerWidget
-import com.im.layarngaca21.viewmodel.MovieDetailViewModel
-import java.time.LocalDate
+import com.im.layarngaca21.utils.values.ToastEnum
+import com.im.layarngaca21.ui.widget.ImageBannerWidget
 import java.text.SimpleDateFormat
-import java.util.*
 
 
-class TVShowDetailActivity : AppCompatActivity() , ViewMessages {
+
+
+class MovieDetailActivity : AppCompatActivity(), ViewMessages {
 
 
     private lateinit var moviesViewModel: MovieDetailViewModel
@@ -55,12 +52,14 @@ class TVShowDetailActivity : AppCompatActivity() , ViewMessages {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowTitleEnabled(false)
 
-        val item = intent.getParcelableExtra<TV>(EXTRA_FILM)
-        toolbar_title.text= item.name
+        val item = intent.getParcelableExtra<Movie>(EXTRA_FILM)
+        toolbar_title.text= item.title
         iv_poster.z = 5f
+        Log.d("DetailActivity","data $item")
 
-        val year = DateFormat.format("yyyy", SimpleDateFormat("yyyy-MM-dd").parse(item.firsAirDate))
-        tv_tittle.text = item.name
+        val year = DateFormat.format("yyyy", SimpleDateFormat("yyyy-MM-dd").parse(item.releaseDate))
+
+        tv_tittle.text = item.title
         tv_year.text = year
         tv_synopsis.text = item.synopsis
         val rate = (item.rate.toFloat()*10).toInt()
@@ -73,14 +72,13 @@ class TVShowDetailActivity : AppCompatActivity() , ViewMessages {
             .into(iv_poster)
 
         moviesViewModel = ViewModelProviders.of(this).get(MovieDetailViewModel::class.java)
-        moviesViewModel.onViewAttached(item.id, CategoryEnum.TV.value)
+        moviesViewModel.onViewAttached(item.id, CategoryEnum.MOVIE.value)
         moviesViewModel.getTrailer().observe(this, getTrailerKey)
         moviesViewModel.getFavorite().observe(this, getFavorite)
         moviesViewModel.messagesEvent.setEventReceiver(this, this)
-        moviesViewModel.setTrailer(item.id, CategoryEnum.TV.value)
 
         btn_favorite.setOnClickListener {
-            val fav = Favorite(id= item.id, title = item.name, date = item.firsAirDate, rate = item.rate, synopsis = item.synopsis, poster = item.poster, category = CategoryEnum.TV.value)
+            val fav = Favorite(id= item.id, title = item.title, date = item.releaseDate, rate = item.rate, synopsis = item.synopsis, poster = item.poster, category = CategoryEnum.MOVIE.value)
             if(isFavorite){
                 moviesViewModel.deleteFavorite(fav)
             }else{
@@ -103,11 +101,11 @@ class TVShowDetailActivity : AppCompatActivity() , ViewMessages {
                 isFavorite = false
             }
 
-            val intent = Intent(this@TVShowDetailActivity, ImageBannerWidget::class.java)
+            val intent = Intent(this@MovieDetailActivity, ImageBannerWidget::class.java)
             intent.action = AppWidgetManager.ACTION_APPWIDGET_UPDATE
-            val appWidgetManager = AppWidgetManager.getInstance(this@TVShowDetailActivity)
+            val appWidgetManager = AppWidgetManager.getInstance(this@MovieDetailActivity)
             val ids = appWidgetManager.getAppWidgetIds(
-                ComponentName(this@TVShowDetailActivity,
+                ComponentName(this@MovieDetailActivity,
                     ImageBannerWidget::class.java)
             )
             intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, ids)
@@ -118,13 +116,15 @@ class TVShowDetailActivity : AppCompatActivity() , ViewMessages {
 
     private val getTrailerKey = object : Observer<Trailer?> {
         override fun onChanged(trailer: Trailer?) {
-            Log.d("DetailMovieActivity","trailer $trailer")
             if (trailer != null) {
                 trailerKey = trailer.key
                 initializeYoutubePlayer()
+            }else{
+                CustomToast().show(this@MovieDetailActivity,resources.getString(R.string.error_msg_bad_connection), ToastEnum.FAILED.value)
             }
         }
     }
+
 
     override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
         android.R.id.home ->{
@@ -147,6 +147,7 @@ class TVShowDetailActivity : AppCompatActivity() , ViewMessages {
             ) {
                 if (!wasRestored) {
                     youTubePlayer = player
+
                     youTubePlayer.setPlayerStyle(YouTubePlayer.PlayerStyle.DEFAULT)
                     youTubePlayer.cueVideo(trailerKey)
                     youTubePlayer.setPlaybackEventListener(object : YouTubePlayer.PlaybackEventListener {

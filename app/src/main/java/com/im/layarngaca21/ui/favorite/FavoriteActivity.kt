@@ -1,4 +1,4 @@
-package com.im.layarngaca21.view.favorite
+package com.im.layarngaca21.ui.favorite
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

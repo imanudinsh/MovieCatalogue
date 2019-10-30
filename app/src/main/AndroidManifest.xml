@@ -22,13 +22,13 @@
             android:theme="@style/AppTheme"
             tools:ignore="GoogleAppIndexingWarning">
 
-        <activity android:name=".view.reminder.ReminderSettingActivity"></activity>
+        <activity android:name=".ui.reminder.ReminderSettingActivity"></activity>
 
         <service
                 android:name=".utils.StackWidgetService"
                 android:permission="android.permission.BIND_REMOTEVIEWS" />
 
-        <receiver android:name=".view.widget.ImageBannerWidget">
+        <receiver android:name=".ui.widget.ImageBannerWidget">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
@@ -40,15 +40,15 @@
 
 
         <receiver
-                android:name=".view.reminder.ReminderReceiver"
+                android:name=".ui.reminder.ReminderReceiver"
                 android:enabled="true"
                 android:exported="true" />
 
-        <activity android:name=".view.search.SearchActivity" />
-        <activity android:name=".view.favorite.FavoriteActivity" />
-        <activity android:name=".view.moviedetail.MovieDetailActivity" />
-        <activity android:name=".view.moviedetail.TVShowDetailActivity" />
-        <activity android:name=".view.main.MainActivity">
+        <activity android:name=".ui.search.SearchActivity" />
+        <activity android:name=".ui.favorite.FavoriteActivity" />
+        <activity android:name=".ui.moviedetail.MovieDetailActivity" />
+        <activity android:name=".ui.moviedetail.TVShowDetailActivity" />
+        <activity android:name=".ui.main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

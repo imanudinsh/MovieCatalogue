@@ -1,9 +1,6 @@
-package com.im.layarngaca21.view.favorite
+package com.im.layarngaca21.ui.favorite
 
 import android.content.Context
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentPagerAdapter
 import com.im.layarngaca21.R
 
 class FavoriteViewPagerAdapter(private val ctx: Context, fm: androidx.fragment.app.FragmentManager) : androidx.fragment.app.FragmentPagerAdapter(fm) {

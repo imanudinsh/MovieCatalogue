@@ -1,4 +1,4 @@
-package com.im.layarngaca21.view.favorite
+package com.im.layarngaca21.ui.favorite
 
 import android.appwidget.AppWidgetManager
 import androidx.lifecycle.Observer
@@ -7,47 +7,45 @@ import android.content.ComponentName
 import android.content.Intent
 import android.os.Bundle
 import androidx.vectordrawable.graphics.drawable.AnimatedVectorDrawableCompat
-import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.LinearLayoutManager
 import android.transition.TransitionInflater
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.im.layarngaca21.R
 import com.im.layarngaca21.database.entity.Favorite
-import com.im.layarngaca21.model.TV
+import com.im.layarngaca21.model.Movie
 import com.im.layarngaca21.utils.ViewMessages
 import com.im.layarngaca21.utils.values.CategoryEnum
-import com.im.layarngaca21.view.main.TVShowViewAdapter
-import com.im.layarngaca21.view.widget.ImageBannerWidget
-import com.im.layarngaca21.viewmodel.TVShowsViewModel
-import kotlinx.android.synthetic.main.fragment_tv_show.*
+import com.im.layarngaca21.ui.main.MovieViewAdapter
+import com.im.layarngaca21.ui.widget.ImageBannerWidget
+import com.im.layarngaca21.ui.main.MoviesViewModel
+import kotlinx.android.synthetic.main.fragment_movie.*
 
 
-class FavoriteTVShowFragment : androidx.fragment.app.Fragment(), ViewMessages {
+class FavoriteMovieFragment : androidx.fragment.app.Fragment(), ViewMessages{
 
 
-    private lateinit  var tvShowsViewModel: TVShowsViewModel
-    private lateinit var adapter: TVShowViewAdapter
+    private lateinit var moviesViewModel: MoviesViewModel
+    private lateinit var adapter: MovieViewAdapter
 
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val mView = inflater.inflate(R.layout.fragment_tv_show, container, false)
+        val mView = inflater.inflate(R.layout.fragment_movie, container, false)
 
         activity?.window?.setSharedElementExitTransition(TransitionInflater.from(context).inflateTransition(R.transition.element_transition))
 
-        adapter = TVShowViewAdapter(activity!!, favListener = {movie, ivHeart, isFavorite ->
-            val fav = Favorite(id= movie.id, title = movie.name, date = movie.firsAirDate, rate = movie.rate, synopsis = movie.synopsis, poster = movie.poster, category = CategoryEnum.TV.value)
+        adapter = MovieViewAdapter(activity!!, favListener = {movie, ivHeart, isFavorite ->
+            val fav = Favorite(id= movie.id, title = movie.title, date = movie.releaseDate, rate = movie.rate, synopsis = movie.synopsis, poster = movie.poster, category = CategoryEnum.MOVIE.value)
             if(isFavorite){
-                tvShowsViewModel.deleteFavorite(fav)
+                moviesViewModel.deleteFavorite(fav)
                 ivHeart.setImageDrawable(context?.getDrawable(R.drawable.ic_heart))
                 ivHeart.imageTintList = context?.getColorStateList(R.color.grey)
                 adapter.removeFavorite(fav)
             }else{
-                tvShowsViewModel.insertFavorite(fav)
+                moviesViewModel.insertFavorite(fav)
                 adapter.addFavorite(fav)
                 context?.let {
                     val ivAnimation = AnimatedVectorDrawableCompat.create(it, R.drawable.ic_heart_anim)
@@ -65,25 +63,24 @@ class FavoriteTVShowFragment : androidx.fragment.app.Fragment(), ViewMessages {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         showRecyclerCardView()
+        moviesViewModel = ViewModelProviders.of(this).get(MoviesViewModel::class.java)
+        moviesViewModel.onViewAttached()
+        moviesViewModel.getAllFavorites().observe(this, getFavorite)
+        moviesViewModel.messagesEvent.setEventReceiver(this, this)
 
-        tvShowsViewModel = ViewModelProviders.of(this).get(TVShowsViewModel::class.java)
-        tvShowsViewModel.onViewAttached()
-        tvShowsViewModel.getAllFavorites().observe(this, getFavorite)
-        tvShowsViewModel.messagesEvent.setEventReceiver(this, this)
-
-        tv_no_data.text = resources.getString(R.string.no_tv_show_favorite)
+        tv_no_data.text = resources.getString(R.string.no_movie_favorite)
     }
-
 
     private val getFavorite = object : Observer<List<Favorite>?> {
         override fun onChanged(listFav: List<Favorite>?) {
             if (listFav != null) {
                 adapter.setFavorites(listFav)
-                val listTV: MutableList<TV> = mutableListOf()
+                val listMovie: MutableList<Movie> = mutableListOf()
                 listFav.forEach {
-                    listTV.add(TV(id= it.id, name = it.title, firsAirDate = it.date, rate = it.rate, synopsis = it.synopsis, poster = it.poster))
+                    listMovie.add(Movie(id= it.id, title = it.title, releaseDate = it.date, rate = it.rate, synopsis = it.synopsis, poster = it.poster))
                 }
-                adapter.setData(listTV)
+                adapter.setData(listMovie)
+
             }
             view_no_data.visibility = if(adapter.itemCount>0) View.GONE else View.VISIBLE
 
@@ -100,14 +97,14 @@ class FavoriteTVShowFragment : androidx.fragment.app.Fragment(), ViewMessages {
         }
     }
 
-
     private fun showRecyclerCardView() {
         rv_category.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(context)
         rv_category.adapter = adapter
     }
 
-
     override fun showMessage(message: Int, category: String) {
+        view_no_data.visibility = if(adapter.itemCount>0) View.GONE else View.VISIBLE
     }
+
 
 }

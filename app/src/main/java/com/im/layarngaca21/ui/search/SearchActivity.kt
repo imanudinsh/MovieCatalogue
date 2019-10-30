@@ -1,11 +1,10 @@
-package com.im.layarngaca21.view.search
+package com.im.layarngaca21.ui.search
 
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.vectordrawable.graphics.drawable.AnimatedVectorDrawableCompat
-import androidx.recyclerview.widget.LinearLayoutManager
 import android.util.Log
 import android.view.MenuItem
 import com.im.layarngaca21.R
@@ -20,15 +19,14 @@ import com.im.layarngaca21.model.TV
 import com.im.layarngaca21.utils.CustomToast
 import com.im.layarngaca21.utils.ViewMessages
 import com.im.layarngaca21.utils.values.CategoryEnum
-import com.im.layarngaca21.view.main.MovieViewAdapter
-import com.im.layarngaca21.view.main.TVShowViewAdapter
-import com.im.layarngaca21.viewmodel.SearchViewModel
+import com.im.layarngaca21.ui.main.MovieViewAdapter
+import com.im.layarngaca21.ui.main.TVShowViewAdapter
 import android.app.Activity
 import android.appwidget.AppWidgetManager
 import android.content.ComponentName
 import android.content.Intent
 import android.view.inputmethod.InputMethodManager
-import com.im.layarngaca21.view.widget.ImageBannerWidget
+import com.im.layarngaca21.ui.widget.ImageBannerWidget
 
 
 class SearchActivity : AppCompatActivity(), ViewMessages {

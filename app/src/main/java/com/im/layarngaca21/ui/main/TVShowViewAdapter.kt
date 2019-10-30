@@ -1,20 +1,17 @@
-package com.im.layarngaca21.view.main
+package com.im.layarngaca21.ui.main
 
 import android.app.Activity
 import android.content.Intent
 import androidx.core.app.ActivityOptionsCompat
-import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.RatingBar
-import android.widget.TextView
 import com.bumptech.glide.Glide
 import com.im.layarngaca21.R
 import com.im.layarngaca21.database.entity.Favorite
 import com.im.layarngaca21.model.TV
-import com.im.layarngaca21.view.moviedetail.TVShowDetailActivity
+import com.im.layarngaca21.ui.moviedetail.TVShowDetailActivity
 import kotlinx.android.synthetic.main.item_row.view.*
 import androidx.core.util.Pair as UtilPair
 

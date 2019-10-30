@@ -1,4 +1,4 @@
-package com.im.layarngaca21.viewmodel
+package com.im.layarngaca21.ui.favorite
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel

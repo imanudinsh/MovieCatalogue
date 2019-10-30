@@ -1,4 +1,4 @@
-package com.im.layarngaca21.view.widget
+package com.im.layarngaca21.ui.widget
 
 import android.app.PendingIntent
 import android.appwidget.AppWidgetManager
@@ -13,8 +13,8 @@ import com.im.layarngaca21.model.Movie
 import com.im.layarngaca21.model.TV
 import com.im.layarngaca21.utils.StackWidgetService
 import com.im.layarngaca21.utils.values.CategoryEnum
-import com.im.layarngaca21.view.moviedetail.MovieDetailActivity
-import com.im.layarngaca21.view.moviedetail.TVShowDetailActivity
+import com.im.layarngaca21.ui.moviedetail.MovieDetailActivity
+import com.im.layarngaca21.ui.moviedetail.TVShowDetailActivity
 
 
 class ImageBannerWidget : AppWidgetProvider() {

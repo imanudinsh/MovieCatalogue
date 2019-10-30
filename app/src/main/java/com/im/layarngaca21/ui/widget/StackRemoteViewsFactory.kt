@@ -1,4 +1,4 @@
-package com.im.layarngaca21.view.widget
+package com.im.layarngaca21.ui.widget
 
 import android.content.Context
 import android.content.Intent

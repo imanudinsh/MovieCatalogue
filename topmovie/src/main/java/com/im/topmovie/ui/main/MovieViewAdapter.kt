@@ -1,4 +1,4 @@
-package com.im.topmovie.view.main
+package com.im.topmovie.ui.main
 
 import android.app.Activity
 import android.content.Intent
@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import com.bumptech.glide.Glide
 import com.im.topmovie.R
 import com.im.topmovie.model.Movie
-import com.im.topmovie.view.moviedetail.MovieDetailActivity
+import com.im.topmovie.ui.moviedetail.MovieDetailActivity
 import kotlinx.android.synthetic.main.item_row.view.*
 import androidx.core.util.Pair as UtilPair
 

@@ -1,9 +1,8 @@
-package com.im.topmovie.view.main
+package com.im.topmovie.ui.main
 
 import android.database.Cursor
 import android.os.Binder
 import android.os.Bundle
-import android.transition.TransitionInflater
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View

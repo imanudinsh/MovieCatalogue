@@ -1,4 +1,4 @@
-package com.im.topmovie.viewmodel
+package com.im.topmovie.ui.moviedetail
 
 import android.app.Application
 import android.util.Log

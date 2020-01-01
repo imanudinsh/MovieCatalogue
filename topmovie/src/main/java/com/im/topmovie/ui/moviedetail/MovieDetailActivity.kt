@@ -1,4 +1,4 @@
-package com.im.topmovie.view.moviedetail
+package com.im.topmovie.ui.moviedetail
 
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -14,23 +14,24 @@ import com.google.android.youtube.player.YouTubePlayerSupportFragment
 import android.text.format.DateFormat
 import com.im.topmovie.BuildConfig
 import com.im.topmovie.R
-import com.im.topmovie.model.TV
+import com.im.topmovie.model.Movie
 import com.im.topmovie.model.Trailer
 import com.im.topmovie.utils.CustomToast
 import com.im.topmovie.utils.ViewMessages
 import com.im.topmovie.utils.values.CategoryEnum
-import com.im.topmovie.viewmodel.MovieDetailViewModel
+import com.im.topmovie.utils.values.ToastEnum
 import java.text.SimpleDateFormat
 
 
-class TVShowDetailActivity : AppCompatActivity() , ViewMessages {
+
+
+class MovieDetailActivity : AppCompatActivity(), ViewMessages {
 
 
     private lateinit var moviesViewModel: MovieDetailViewModel
     private lateinit var youTubePlayerFragment: YouTubePlayerSupportFragment
     private lateinit var youTubePlayer: YouTubePlayer
     private lateinit var trailerKey: String
-    private var isFavorite: Boolean = false
 
     companion object{
         const val EXTRA_FILM = "EXTRA_FILM"
@@ -44,12 +45,14 @@ class TVShowDetailActivity : AppCompatActivity() , ViewMessages {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowTitleEnabled(false)
 
-        val item = intent.getParcelableExtra<TV>(EXTRA_FILM)
-        toolbar_title.text= item.name
+        val item = intent.getParcelableExtra<Movie>(EXTRA_FILM)
+        toolbar_title.text= item.title
         iv_poster.z = 5f
+        Log.d("DetailActivity","data $item")
 
-        val year = DateFormat.format("yyyy", SimpleDateFormat("yyyy-MM-dd").parse(item.firsAirDate))
-        tv_tittle.text = item.name
+        val year = DateFormat.format("yyyy", SimpleDateFormat("yyyy-MM-dd").parse(item.releaseDate))
+
+        tv_tittle.text = item.title
         tv_year.text = year
         tv_synopsis.text = item.synopsis
         val rate = (item.rate.toFloat()*10).toInt()
@@ -62,22 +65,24 @@ class TVShowDetailActivity : AppCompatActivity() , ViewMessages {
             .into(iv_poster)
 
         moviesViewModel = ViewModelProviders.of(this).get(MovieDetailViewModel::class.java)
-        moviesViewModel.onViewAttached(item.id, CategoryEnum.TV.value)
+        moviesViewModel.onViewAttached(item.id, CategoryEnum.MOVIE.value)
         moviesViewModel.getTrailer().observe(this, getTrailerKey)
         moviesViewModel.messagesEvent.setEventReceiver(this, this)
-        moviesViewModel.setTrailer(item.id, CategoryEnum.TV.value)
 
     }
+
 
     private val getTrailerKey = object : Observer<Trailer?> {
         override fun onChanged(trailer: Trailer?) {
-            Log.d("DetailMovieActivity","trailer $trailer")
             if (trailer != null) {
                 trailerKey = trailer.key
                 initializeYoutubePlayer()
+            }else{
+                CustomToast().show(this@MovieDetailActivity,resources.getString(R.string.error_msg_bad_connection), ToastEnum.FAILED.value)
             }
         }
     }
+
 
     override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
         android.R.id.home ->{
@@ -100,6 +105,7 @@ class TVShowDetailActivity : AppCompatActivity() , ViewMessages {
             ) {
                 if (!wasRestored) {
                     youTubePlayer = player
+
                     youTubePlayer.setPlayerStyle(YouTubePlayer.PlayerStyle.DEFAULT)
                     youTubePlayer.cueVideo(trailerKey)
                     youTubePlayer.setPlaybackEventListener(object : YouTubePlayer.PlaybackEventListener {

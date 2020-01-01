@@ -1,4 +1,4 @@
-package com.im.topmovie.view.main
+package com.im.topmovie.ui.main
 
 import android.content.Context
 import androidx.fragment.app.Fragment

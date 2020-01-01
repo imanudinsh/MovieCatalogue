@@ -1,4 +1,4 @@
-package com.im.topmovie.view.main
+package com.im.topmovie.ui.main
 
 
 import android.os.Bundle

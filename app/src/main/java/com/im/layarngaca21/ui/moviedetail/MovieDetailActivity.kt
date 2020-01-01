@@ -27,8 +27,7 @@ import com.im.layarngaca21.utils.values.CategoryEnum
 import com.im.layarngaca21.utils.values.ToastEnum
 import com.im.layarngaca21.ui.widget.ImageBannerWidget
 import java.text.SimpleDateFormat
-
-
+import java.util.*
 
 
 class MovieDetailActivity : AppCompatActivity(), ViewMessages {
@@ -57,7 +56,7 @@ class MovieDetailActivity : AppCompatActivity(), ViewMessages {
         iv_poster.z = 5f
         Log.d("DetailActivity","data $item")
 
-        val year = DateFormat.format("yyyy", SimpleDateFormat("yyyy-MM-dd").parse(item.releaseDate))
+        val year = DateFormat.format("yyyy", SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH).parse(item.releaseDate))
 
         tv_tittle.text = item.title
         tv_year.text = year
